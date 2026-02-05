@@ -49,16 +49,19 @@ OBJ_MY =       $(SRC_MY_PREFIX:.c=.o)
 NAME_MY =       libmy.a
 
 SRC_PROJ	=	main.c	\
+			event_handling/wait_for_next_move.c	\
+			error_handling/error_handler.c	\
+			error_handling/display_error.c	\
 
 SRC_PROJ_PREFIX	=	$(addprefix src/, $(SRC_PROJ))
 
 OBJ_PROJ	=	$(SRC_PROJ_PREFIX:.c=.o)
 
-NAME_PROJ	=	a.out
+NAME_PROJ	=	connect_4
 
 CC	=	epiclang
 
-LDFLAGS =      	-L./ -lmy
+LDFLAGS =      	 -l csfml-graphics -l csfml-system -Llib/ -lmy -lncurses
 
 CPPFLAGS =	-Iinclude
 
@@ -70,7 +73,7 @@ all:	$(NAME_MY) $(NAME_PROJ)
 $(NAME_MY): $(OBJ_MY)
 	ar rc $(NAME_MY) $(OBJ_MY)
 	cp include/my.h lib/my/
-	cp $(NAME_MY) lib/
+	mv $(NAME_MY) lib/
 
 $(NAME_PROJ): $(OBJ_PROJ)
 	$(CC) -o $(NAME_PROJ) $(OBJ_PROJ) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS)
@@ -81,7 +84,8 @@ cpy:
 clean:
 	rm -f $(OBJ_MY) $(OBJ_PROJ)
 	rm -f include/*~ include/*# include/*.pch
-	rm -f toolbox/*~ in_game/*~ window-elem_creation/*~ out-of-the-box/*~ error_handling/*~
+	rm -f src/*~ 
+	rm -f src/*~ src/*# src/error_handling/*~ src/error_handling/*# src/event_handling/*~ src/event_handling/*#
 
 fclean: clean
 	rm -f *.gcda *.gcno

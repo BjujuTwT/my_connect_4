@@ -7,9 +7,10 @@
 
 #include <ncurses.h>
 
+#include "config.h"
 #include "my.h"
 
-WINDOW *ncurse_init(void)
+WINDOW *ncurses_init(void)
 {
     WINDOW *screen = initscr();
 
@@ -22,11 +23,25 @@ WINDOW *ncurse_init(void)
     return screen;
 }
 
-int main(void)
+void display_board(WINDOW *screen)
+{
+    wprintw(screen, "OK");
+    return;
+}
+
+int main(int argc, char **argv)
 {
     WINDOW *screen;
 
-    my_putstr("OK\n");
+    if (error_handler(argc, argv) != 0)
+        return 84;
+    screen = ncurses_init();
+    while (isendwin() == FALSE) {
+        werase(screen);
+        display_board(screen);
+        wrefresh(screen);
+        wait_for_next_move(screen);
+    }
     endwin();
     return 0;
 }
