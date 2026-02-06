@@ -15,6 +15,7 @@ static int verif_argument(int flag)
     const int ncurses_flag = 'n';
     const int csfml_flag = 'c';
     const int help_flag = 'h';
+    const int fr_help_flag = 'f';
 
     switch (flag) {
         case (ncurses_flag):
@@ -23,6 +24,8 @@ static int verif_argument(int flag)
             return 0;
         case (help_flag):
             return 0;
+        case (fr_help_flag):
+            return 0;
     }
     return -1;
 }
@@ -30,18 +33,18 @@ static int verif_argument(int flag)
 int error_handler(int argc, char **argv)
 {
     if (argc != 2) {
-        display_error("Expected a single argument.\n", CRIMSON);
-        display_error("Try : ./connect_4 -h\n", LIGHT_BLUE);
+        display_color("Expected a single argument.\n", CRIMSON, 2);
+        display_help_examples(2);
         return 84;
     }
     if (argv[1][0] != '-') {
-        display_error("Incorrect argument given.\n", CRIMSON);
-        display_error("Try : ./connect_4 -h\n", LIGHT_BLUE);
+        display_color("Incorrect argument given.\n", CRIMSON, 2);
+        display_help_examples(2);
         return 84;
     }
     if (my_strlen(argv[1]) != 2 || verif_argument(argv[1][1]) == -1) {
-        display_error("Incorrect flag given.\n", CRIMSON);
-        display_error("Try : ./connect_4 -h\n", LIGHT_BLUE);
+        display_color("Incorrect flag given.\n", CRIMSON, 2);
+        display_help_examples(2);
         return 84;
     }
     return 0;

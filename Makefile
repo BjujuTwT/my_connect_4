@@ -51,7 +51,10 @@ NAME_MY =       libmy.a
 SRC_PROJ	=	main.c	\
 			event_handling/wait_for_next_move.c	\
 			error_handling/error_handler.c	\
-			error_handling/display_error.c	\
+			board/settings_init.c	\
+			display/display_board.c	\
+			display/display_help.c	\
+			display/display_color.c	\
 
 SRC_PROJ_PREFIX	=	$(addprefix src/, $(SRC_PROJ))
 
@@ -73,7 +76,7 @@ all:	$(NAME_MY) $(NAME_PROJ)
 $(NAME_MY): $(OBJ_MY)
 	ar rc $(NAME_MY) $(OBJ_MY)
 	cp include/my.h lib/my/
-	mv $(NAME_MY) lib/
+	cp $(NAME_MY) lib/
 
 $(NAME_PROJ): $(OBJ_PROJ)
 	$(CC) -o $(NAME_PROJ) $(OBJ_PROJ) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS)
@@ -86,6 +89,7 @@ clean:
 	rm -f include/*~ include/*# include/*.pch
 	rm -f src/*~ 
 	rm -f src/*~ src/*# src/error_handling/*~ src/error_handling/*# src/event_handling/*~ src/event_handling/*#
+	rm -f src/display/*~ src/display/*# src/board/*~ src/board/*# ressources/*~ ressources/*#
 
 fclean: clean
 	rm -f *.gcda *.gcno

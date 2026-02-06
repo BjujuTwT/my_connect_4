@@ -10,12 +10,40 @@
     #include <ncurses.h>
 
 
-// error handling
+typedef struct cell {
+    int taken;
+    int ncurses_color;
+} cell_t;
+
+typedef struct game {
+    size_t width;
+    size_t height;
+    cell_t **board;
+    int nb_players;
+    int player_turn;
+    WINDOW *screen;
+    int to_terminate;
+} settings_t;
+
+
+// -- error handling
 int error_handler(int argc, char **argv);
-void display_error(char *msg, char *color);
 
 
-// event handling
+// -- board related funcs
+settings_t init(char mode);
+
+
+// -- display functions
+// pre game
+void display_color(char *msg, char *color, int std);
+void display_help_examples(int std);
+int display_help(char language);
+// in game
+void display_board(settings_t *settings);
+
+
+// -- event handling
 void wait_for_next_move(WINDOW *screen);
 
 

@@ -1,0 +1,31 @@
+Hello!
+
+
+This little program simulates a 2 player connect 4, either with ncurses, or CSFML !
+
+If you are a tty user, go with ncurses. It's simpler and doesn't use a graphical library.
+If you want more detailed things with sprites and prettier things to look at, use CSFML !
+
+
+Usage :
+
+./connect_4 [flag]
+
+
+Flags :
+
+-n : starts in ncurses
+-c : starts in CSFML
+-h / -f : displays the help menu in english / french
+
+
+
+If you don't know about connect 4, here are the rules :
+
+The goal is to be the first to align 4 discs vertically, horizontally, or diagonally.
+Each player takes turn dropping a disc into one of the rows in the playing grid.
+The discs will always occupy the lowest spot on the row played, and can't be changed.
+If no one aligns 4 discs before the board is full, the game ends up with a draw.
+
+
+Have fun!

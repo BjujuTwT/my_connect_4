@@ -6,42 +6,37 @@
 */
 
 #include <ncurses.h>
+#include <stdlib.h>
 
 #include "config.h"
 #include "my.h"
 
-WINDOW *ncurses_init(void)
+static void free_func(settings_t *settings)
 {
-    WINDOW *screen = initscr();
+    size_t height = settings->height;
 
-    noecho();
-    nodelay(screen, true);
-    if (has_colors() == true) {
-        start_color();
-        use_default_colors();
-    }
-    return screen;
-}
-
-void display_board(WINDOW *screen)
-{
-    wprintw(screen, "OK");
+    for (size_t i = 0; i < height; i++)
+        free((settings->board)[i]);
+    free(settings->board);
     return;
 }
 
 int main(int argc, char **argv)
 {
-    WINDOW *screen;
+    settings_t settings;
 
     if (error_handler(argc, argv) != 0)
         return 84;
-    screen = ncurses_init();
+    settings = init(argv[1][1]);
+    if (settings.to_terminate != 0)
+        return settings.to_terminate;
     while (isendwin() == FALSE) {
-        werase(screen);
-        display_board(screen);
-        wrefresh(screen);
-        wait_for_next_move(screen);
+        werase(settings.screen);
+        display_board(&settings);
+        wrefresh(settings.screen);
+        wait_for_next_move(settings.screen);
     }
     endwin();
+    free_func(&settings);
     return 0;
 }

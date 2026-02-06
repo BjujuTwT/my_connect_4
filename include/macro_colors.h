@@ -13,8 +13,12 @@
     // Error
     #define CRIMSON "\e[38;5;88m"
 
+    // Missing file
+    #define CYAN "\x1b[38;5;6m"
+
     // How to : help menu
-    #define LIGHT_BLUE "\x1b[38;5;44m"
+    #define RED "\x1b[38;5;161m"
+    #define BLUE "\x1b[38;5;26m"
 
     // Basic color
     #define WHITE "\x1b[0m"

@@ -1,0 +1,31 @@
+Bonjour!
+
+
+Ce petit programme simule un puissance 4 à deux joueurs, soit avec ncurses, soit CSFML !
+
+Si vous utilisez tty, utilisez ncurses. C'est plus facile et ne nécessite pas une librairie graphique.
+Si vous voulez un jeu plus détaillé avec des sprites, des choses plus jolies, utilisez CSFML
+
+
+Utilisation :
+
+./connect_4 [drapeau]
+
+
+Drapeaux :
+
+-n : démarre en ncurses
+-c : démarre en CSFML
+-f / -h : affiche le menu d'aide en français / anglais
+
+
+
+Si vous ne connaissez pas le puissance 4, voici les règles :
+
+The but est d'être le premier à aligner 4 pions à la verticale, horizontale, ou diagonale.
+Chaque joueur joue à son tour, plaçant un pion dans une des colonnes de la grille de jeu.
+Les pions occuppent toujours l'endroit le plus bas sur la colonne jouée, et ne peuvent pas être bougés.
+Si personne n'aligne 4 pions avant que la grille soit complète, le jeu se finit en match nul.
+
+
+Amusez vous bien!
