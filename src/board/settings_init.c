@@ -36,6 +36,7 @@ settings_t init(char mode)
         settings.to_terminate = display_help(mode);
         return settings;
     }
+    settings.to_terminate = 0;
     settings.height = 6;
     settings.width = 7;
     settings.nb_players = 2;
