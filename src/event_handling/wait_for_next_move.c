@@ -5,7 +5,7 @@
 ** waits until a valid key has been pressed, and executes it
 */
 
-#include <ncurses.h>
+#include "config.h"
 
 static int do_action(int key)
 {

@@ -5,6 +5,8 @@
 ** displays all necessary informations
 */
 
+#include "config.h"
+
 #include "my.h"
 #include "macro_colors.h"
 #include "config.h"

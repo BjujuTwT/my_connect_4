@@ -6,8 +6,8 @@
 ** caused by the executable command
 */
 
-#include "my.h"
 #include "config.h"
+#include "my.h"
 #include "macro_colors.h"
 
 static int verif_argument(int flag)

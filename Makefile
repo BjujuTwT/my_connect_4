@@ -64,7 +64,7 @@ NAME_PROJ	=	connect_4
 
 CC	=	epiclang
 
-LDFLAGS =      	 -l csfml-graphics -l csfml-system -Llib/ -lmy -lncurses
+LDFLAGS =      	 -l csfml-graphics -l csfml-system -Llib/ -lmy -lncursesw
 
 CPPFLAGS =	-Iinclude
 

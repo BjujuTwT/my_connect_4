@@ -6,6 +6,7 @@
 */
 
 #include <stdlib.h>
+#include <locale.h>
 
 #include "config.h"
 
@@ -41,6 +42,7 @@ settings_t init(char mode)
     settings.width = 7;
     settings.nb_players = 2;
     settings.player_turn = 1;
+    setlocale(LC_ALL, "");
     ncurses_init(&settings);
     return settings;
 }

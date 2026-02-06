@@ -5,6 +5,7 @@
 ** displays in color a text
 */
 
+#include "config.h"
 #include "my.h"
 #include "macro_colors.h"
 
