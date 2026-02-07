@@ -7,6 +7,7 @@ Si vous utilisez tty, utilisez ncurses. C'est plus facile et ne nécessite pas u
 Si vous voulez un jeu plus détaillé avec des sprites, des choses plus jolies, utilisez CSFML
 
 
+
 Utilisation :
 
 ./connect_4 [drapeau]
@@ -17,6 +18,12 @@ Drapeaux :
 -n : démarre en ncurses
 -c : démarre en CSFML
 -f / -h : affiche le menu d'aide en français / anglais
+
+
+Interractions :
+
+'1' à '7' :
+'q' : quitte le programme
 
 
 

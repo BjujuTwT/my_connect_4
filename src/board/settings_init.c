@@ -8,14 +8,17 @@
 #include <stdlib.h>
 #include <locale.h>
 
+#include "macro_colors.h"
 #include "config.h"
 
 static void ncurses_init(settings_t *settings)
 {
-    WINDOW *screen = initscr();
+    WINDOW *screen;
     size_t width = settings->width;
     size_t height = settings->height;
 
+    display_help_examples(1);
+    screen = initscr();
     noecho();
     nodelay(screen, true);
     if (has_colors() == true) {
@@ -29,10 +32,19 @@ static void ncurses_init(settings_t *settings)
     return;
 }
 
+static void csfml_init(settings_t *settings)
+{
+    display_help_examples(2);
+    settings->to_terminate = 1;
+    display_color("\nThis option hasn't been implemented yet.\n", CRIMSON, 2);
+    return;
+}
+
 settings_t init(char mode)
 {
     settings_t settings;
 
+    setlocale(LC_ALL, "");
     if (mode == 'h' || mode == 'f') {
         settings.to_terminate = display_help(mode);
         return settings;
@@ -42,7 +54,9 @@ settings_t init(char mode)
     settings.width = 7;
     settings.nb_players = 2;
     settings.player_turn = 1;
-    setlocale(LC_ALL, "");
-    ncurses_init(&settings);
+    if (mode == 'n')
+        ncurses_init(&settings);
+    if (mode == 'c')
+        csfml_init(&settings);
     return settings;
 }
