@@ -12,7 +12,7 @@
 
 void display_board(settings_t *settings)
 {
-    FILE *fd = fopen("ressources/test", "r");
+    FILE *fd = fopen("ressources/template", "r");
     char *buffer = NULL;
     size_t size = 0;
     long return_value = 0;
