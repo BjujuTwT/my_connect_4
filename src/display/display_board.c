@@ -3,16 +3,27 @@
 ** display_board
 ** File description:
 ** displays the whole board
+** ╔─╦─╗
+** │ │ │
+** ╠─╬─╣
+** │ │ │
+** ╚─╩─╝
+** ╔───╦───╗
+** │   │   │
+** ╠───╬───╣
+** │   │   │1
+** ╚───╩───╝
+**      123
 */
+
+#include <wchar.h>
 
 #include "config.h"
 #include "my.h"
-#include <wchar.h>
 
-
-void display_board(settings_t *settings)
+static void display_file_in_screen(char *file, settings_t *settings)
 {
-    FILE *fd = fopen("ressources/template", "r");
+    FILE *fd = fopen(file, "r");
     char *buffer = NULL;
     size_t size = 0;
     long return_value = 0;
@@ -27,5 +38,11 @@ void display_board(settings_t *settings)
         wprintw(screen, "%s", buffer);
         return_value = getline(&buffer, &size, fd);
     }
+    return;
+}
+
+void display_board(settings_t *settings)
+{
+    display_file_in_screen("ressources/template", settings);
     return;
 }

@@ -23,9 +23,10 @@ typedef struct linked_list_player_info {
 } ll_player_info_t;
 
 typedef struct game {
-    size_t width;
-    size_t height;
+    int width;
+    int height;
     cell_t **board;
+    int *proportions;
     int nb_players;
     int player_turn;
     WINDOW *screen;

@@ -11,6 +11,40 @@
 #include "macro_colors.h"
 #include "config.h"
 
+void ncurses_init(settings_t *settings)
+{
+    WINDOW *screen;
+
+    display_help_examples(1);
+    screen = initscr();
+    noecho();
+    nodelay(screen, true);
+    if (has_colors() == true) {
+        start_color();
+        use_default_colors();
+    }
+    settings->screen = screen;
+    return;
+}
+
+void csfml_init(settings_t *settings)
+{
+    display_help_examples(2);
+    settings->to_terminate = 1;
+    display_color("This option hasn't been implemented yet.\n", CRIMSON, 2);
+    return;
+}
+
+static cell_t *init_cell_row(size_t width)
+{
+    cell_t *cell = NULL;
+
+    cell = malloc(sizeof(cell_t) * width);
+    for (size_t i = 0; i < width; i++)
+        cell[i].taken = 0;
+    return cell;
+}
+
 static ll_player_info_t *setup_players_struct(int nb_players)
 {
     ll_player_info_t *player_info = NULL;
@@ -26,43 +60,23 @@ static ll_player_info_t *setup_players_struct(int nb_players)
     return player_info;
 }
 
-static cell_t *init_cell_row(size_t width)
+static void basic_settings(settings_t *settings)
 {
-    cell_t *cell = NULL;
+    size_t dimensions = 2;
+    size_t width = 7;
+    size_t height = 6;
 
-    cell = malloc(sizeof(cell_t) * width);
-    for (size_t i = 0; i < width; i++)
-        cell[i].taken = 0;
-    return cell;
-}
-
-static void ncurses_init(settings_t *settings, int nb_players)
-{
-    WINDOW *screen;
-    size_t width = settings->width;
-    size_t height = settings->height;
-
-    display_help_examples(1);
-    screen = initscr();
-    noecho();
-    nodelay(screen, true);
-    if (has_colors() == true) {
-        start_color();
-        use_default_colors();
-    }
-    settings->screen = screen;
+    settings->width = (int)width;
+    settings->height = (int)height;
+    settings->nb_players = 2;
+    settings->player_turn = 1;
+    settings->proportions = malloc(sizeof(int) * dimensions);
+    settings->proportions[0] = 11;
+    settings->proportions[1] = 5;
     settings->board = malloc(sizeof(cell_t *) * height);
     for (size_t i = 0; i < height; i++)
         (settings->board)[i] = init_cell_row(width);
-    settings->player_info = setup_players_struct(nb_players);
-    return;
-}
-
-static void csfml_init(settings_t *settings)
-{
-    display_help_examples(2);
-    settings->to_terminate = 1;
-    display_color("This option hasn't been implemented yet.\n", CRIMSON, 2);
+    settings->player_info = setup_players_struct(settings->nb_players);
     return;
 }
 
@@ -76,12 +90,9 @@ settings_t init(char mode)
         return settings;
     }
     settings.to_terminate = 0;
-    settings.height = 6;
-    settings.width = 7;
-    settings.nb_players = 2;
-    settings.player_turn = 1;
+    basic_settings(&settings);
     if (mode == 'n')
-        ncurses_init(&settings, settings.nb_players);
+        ncurses_init(&settings);
     if (mode == 'c')
         csfml_init(&settings);
     return settings;

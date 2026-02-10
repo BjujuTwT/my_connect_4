@@ -12,9 +12,9 @@
 
 static void free_func(settings_t *settings)
 {
-    size_t height = settings->height;
+    int height = settings->height;
 
-    for (size_t i = 0; i < height; i++)
+    for (int i = 0; i < height; i++)
         free((settings->board)[i]);
     free(settings->board);
     return;
