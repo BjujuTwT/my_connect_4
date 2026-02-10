@@ -58,6 +58,16 @@ void put_dots(settings_t *settings, WINDOW *screen, int width, int height)
     return;
 }
 
+static void display_pattern_coordinates(WINDOW *screen,
+    int y, int x, ll_player_info_t *player_info)
+{
+    wchar_t **pattern = player_info->pattern;
+
+    for (int i = 0; pattern[i] != NULL; i++)
+        mvwprintw(screen, y + i, x, "%ls", pattern[i]);
+    return;
+}
+
 void display_board(settings_t *settings)
 {
     WINDOW *screen = settings->screen;
@@ -66,7 +76,10 @@ void display_board(settings_t *settings)
 
     display_file_in_screen("ressources/template", screen);
     put_dots(settings, screen, width, height);
-    wmove(screen, 15, 116);
-    waddstr(screen, "╔");
+    mvwaddstr(screen, 15, 116, "╔");
+    mvwaddstr(screen, 15, 116 + width + 1, "╗");
+    display_pattern_coordinates(screen, 16, 117, settings->player_info);
+    mvwaddstr(screen, 15 + height + 1, 116, "╚");
+    mvwaddstr(screen, 15 + height + 1, 116 + width + 1, "╝");
     return;
 }

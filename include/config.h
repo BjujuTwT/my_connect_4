@@ -8,7 +8,7 @@
 #ifndef CONFIG_C4_H_
     #define CONFIG_C4_H_
     #include <ncurses.h>
-    #include <uchar.h>
+    #include <wchar.h>
 
 
 typedef struct cell {
@@ -18,7 +18,7 @@ typedef struct cell {
 
 typedef struct linked_list_player_info {
     int index;
-    char16_t **pattern;
+    wchar_t **pattern;
     int color;
     struct linked_list_player_info *next;
 } ll_player_info_t;
