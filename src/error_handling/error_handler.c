@@ -33,18 +33,18 @@ static int verif_argument(int flag)
 int error_handler(int argc, char **argv)
 {
     if (argc != 2) {
-        display_color("Expected a single argument.\n", CRIMSON, 2);
         display_help_examples(2);
+        display_color("Expected a single argument.\n", CRIMSON, 2);
         return 84;
     }
     if (argv[1][0] != '-') {
-        display_color("Incorrect argument given.\n", CRIMSON, 2);
         display_help_examples(2);
+        display_color("Incorrect argument given.\n", CRIMSON, 2);
         return 84;
     }
     if (my_strlen(argv[1]) != 2 || verif_argument(argv[1][1]) == -1) {
-        display_color("Incorrect flag given.\n", CRIMSON, 2);
         display_help_examples(2);
+        display_color("Incorrect flag given.\n", CRIMSON, 2);
         return 84;
     }
     return 0;

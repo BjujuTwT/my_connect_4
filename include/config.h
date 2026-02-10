@@ -15,6 +15,13 @@ typedef struct cell {
     int ncurses_color;
 } cell_t;
 
+typedef struct linked_list_player_info {
+    int index;
+    char **pattern;
+    int color;
+    struct linked_list_player_info *next;
+} ll_player_info_t;
+
 typedef struct game {
     size_t width;
     size_t height;
@@ -23,6 +30,7 @@ typedef struct game {
     int player_turn;
     WINDOW *screen;
     int to_terminate;
+    struct linked_list_player_info *player_info;
 } settings_t;
 
 

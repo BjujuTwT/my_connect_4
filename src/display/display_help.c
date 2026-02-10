@@ -25,6 +25,7 @@ static int display_file_content(char *filepath)
         write(2, "\n", 1);
         return 84;
     }
+    my_putstr("\n");
     return_value = getline(&buffer, &size, fd);
     while (return_value != -1) {
         my_putstr(buffer);
@@ -33,12 +34,21 @@ static int display_file_content(char *filepath)
     return 0;
 }
 
+void display_help_examples(int std)
+{
+    char *msg_en = "Try : ./connect_4 -h\n\0";
+    char *msg_fr = "Essayez : ./connect_4 -f\n\n\0";
+
+    display_color(msg_en, RED, std);
+    display_color(msg_fr, BLUE, std);
+    return;
+}
+
 int display_help(char language)
 {
     int return_value = 0;
 
     display_help_examples(1);
-    my_putstr("\n\n");
     if (language == 'f')
         return_value = display_file_content("ressources/french_menu");
     if (language == 'h')
