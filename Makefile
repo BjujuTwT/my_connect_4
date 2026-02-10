@@ -20,6 +20,7 @@ SRC_MY	=	my_compute_square_root.c	\
 		my_merge_sort.c	\
 		my_strlowcase.c	\
 		my_floatncmp.c	\
+		my_put_array.c	\
 		my_strcutcpy.c	\
 		my_strupcase.c	\
 		my_is_prime.c	\
@@ -52,6 +53,7 @@ SRC_PROJ	=	main.c	\
 			event_handling/wait_for_next_move.c	\
 			error_handling/error_handler.c	\
 			board/settings_init.c	\
+			board/players_patterns.c	\
 			display/display_board.c	\
 			display/display_help.c	\
 			display/display_color.c	\

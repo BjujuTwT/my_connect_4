@@ -47,5 +47,6 @@ int my_find_n_in_array(int nb, int *array, int size);
 void my_put_int_array(int *array, int size);
 int my_max(int n1, int n2);
 int my_min(int n1, int n2);
+void my_put_array(char **array);
 
 #endif /* MY_STR_PROTOTYPES_ */

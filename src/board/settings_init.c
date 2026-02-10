@@ -18,6 +18,7 @@ void ncurses_init(settings_t *settings)
     display_help_examples(1);
     screen = initscr();
     noecho();
+    keypad(screen, true);
     nodelay(screen, true);
     if (has_colors() == true) {
         start_color();
@@ -45,9 +46,11 @@ static cell_t *init_cell_row(size_t width)
     return cell;
 }
 
-static ll_player_info_t *setup_players_struct(int nb_players)
+static ll_player_info_t *setup_players_struct(settings_t *settings)
 {
     ll_player_info_t *player_info = NULL;
+    int nb_players = settings->nb_players;
+    int *proportions = settings->proportions;
 
     player_info = malloc(sizeof(ll_player_info_t));
     player_info->index = 1;
@@ -57,12 +60,13 @@ static ll_player_info_t *setup_players_struct(int nb_players)
         player_info->next->index = 2;
         player_info->next->next = NULL;
     }
+    setup_players_patterns(player_info, proportions);
     return player_info;
 }
 
 static void basic_settings(settings_t *settings)
 {
-    size_t dimensions = 2;
+    size_t dimensions = 2 + 1;
     size_t width = 7;
     size_t height = 6;
 
@@ -73,10 +77,11 @@ static void basic_settings(settings_t *settings)
     settings->proportions = malloc(sizeof(int) * dimensions);
     settings->proportions[0] = 11;
     settings->proportions[1] = 5;
+    settings->proportions[2] = 1;
     settings->board = malloc(sizeof(cell_t *) * height);
     for (size_t i = 0; i < height; i++)
         (settings->board)[i] = init_cell_row(width);
-    settings->player_info = setup_players_struct(settings->nb_players);
+    settings->player_info = setup_players_struct(settings);
     return;
 }
 

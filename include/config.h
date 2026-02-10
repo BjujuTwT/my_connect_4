@@ -8,6 +8,7 @@
 #ifndef CONFIG_C4_H_
     #define CONFIG_C4_H_
     #include <ncurses.h>
+    #include <uchar.h>
 
 
 typedef struct cell {
@@ -17,7 +18,7 @@ typedef struct cell {
 
 typedef struct linked_list_player_info {
     int index;
-    char **pattern;
+    char16_t **pattern;
     int color;
     struct linked_list_player_info *next;
 } ll_player_info_t;
@@ -41,7 +42,7 @@ int error_handler(int argc, char **argv);
 
 // -- board related funcs
 settings_t init(char mode);
-
+void setup_players_patterns(ll_player_info_t *player_info, int *proportions);
 
 // -- display functions
 // pre game
