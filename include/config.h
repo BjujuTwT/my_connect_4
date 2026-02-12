@@ -54,7 +54,7 @@ void display_board(settings_t *settings);
 
 
 // -- event handling
-void wait_for_next_move(WINDOW *screen);
+void wait_for_next_move(settings_t *settings);
 
 
 

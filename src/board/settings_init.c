@@ -20,6 +20,7 @@ void ncurses_init(settings_t *settings)
     noecho();
     keypad(screen, true);
     nodelay(screen, true);
+    curs_set(0);
     if (has_colors() == true) {
         start_color();
         use_default_colors();
