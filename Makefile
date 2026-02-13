@@ -54,9 +54,11 @@ SRC_PROJ	=	main.c	\
 			error_handling/error_handler.c	\
 			board/settings_init.c	\
 			board/players_patterns.c	\
-			display/display_board.c	\
+			board/add_token_in_row.c	\
+			display/display_ncurse.c	\
 			display/display_help.c	\
 			display/display_color.c	\
+			display/display_cells.c	\
 
 SRC_PROJ_PREFIX	=	$(addprefix src/, $(SRC_PROJ))
 

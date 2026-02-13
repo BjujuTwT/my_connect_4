@@ -43,6 +43,8 @@ int error_handler(int argc, char **argv);
 // -- board related funcs
 settings_t init(char mode);
 void setup_players_patterns(ll_player_info_t *player_info, int *proportions);
+int add_token_in_row(int key, cell_t **board);
+
 
 // -- display functions
 // pre game
@@ -50,7 +52,8 @@ void display_color(char *msg, char *color, int std);
 void display_help_examples(int std);
 int display_help(char language);
 // in game
-void display_board(settings_t *settings);
+void display_ncurse(settings_t *settings);
+void display_cells(settings_t *settings);
 
 
 // -- event handling

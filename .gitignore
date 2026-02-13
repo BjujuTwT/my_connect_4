@@ -5,3 +5,5 @@ a.out
 connect_4
 *.gcda
 *.gcno
+temp
+temp.txt
