@@ -43,7 +43,7 @@ static void disp_line(WINDOW *screen, settings_t *settings,
     return;
 }
 
-static char **corner_struct(char *corner1, char *corner2,
+static char **corner_array(char *corner1, char *corner2,
     char *corner3, char *corner4)
 {
     size_t nb_elem = 4;
@@ -61,10 +61,10 @@ static void display_board(WINDOW *screen, settings_t *settings)
     int height = settings->height;
     int cell_h = settings->proportions[1];
     int nb_lines = (height * cell_h) + height + 1;
-    char **corner_up = corner_struct("╔", "╦", "─", "╗");
-    char **corner_basic = corner_struct("│", "│", " ", "│");
-    char **corner_middle = corner_struct("╠", "╬", "─", "╣");
-    char **corner_down = corner_struct("╚", "╩", "─", "╝");
+    char **corner_up = corner_array("╔", "╦", "─", "╗");
+    char **corner_basic = corner_array("│", "│", " ", "│");
+    char **corner_middle = corner_array("╠", "╬", "─", "╣");
+    char **corner_down = corner_array("╚", "╩", "─", "╝");
 
     disp_line(screen, settings, 0, corner_up);
     for (int line_i = 1; line_i + 1 < nb_lines; line_i++) {
@@ -82,6 +82,7 @@ void display_ncurse(settings_t *settings)
     WINDOW *screen = settings->screen;
 
     display_board(screen, settings);
+    display_stand(screen, settings);
     display_cells(settings);
     return;
 }

@@ -54,6 +54,7 @@ int display_help(char language);
 // in game
 void display_ncurse(settings_t *settings);
 void display_cells(settings_t *settings);
+void display_stand(WINDOW *screen, settings_t *settings);
 
 
 // -- event handling

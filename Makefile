@@ -59,6 +59,7 @@ SRC_PROJ	=	main.c	\
 			display/display_help.c	\
 			display/display_color.c	\
 			display/display_cells.c	\
+			display/display_stand.c	\
 
 SRC_PROJ_PREFIX	=	$(addprefix src/, $(SRC_PROJ))
 
