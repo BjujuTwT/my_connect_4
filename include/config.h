@@ -27,9 +27,9 @@ typedef struct game {
     int width;
     int height;
     cell_t **board;
+    int col_arrow;
     int *proportions;
     int nb_players;
-    int player_turn;
     WINDOW *screen;
     int to_terminate;
     struct linked_list_player_info *player_info;
@@ -43,7 +43,7 @@ int error_handler(int argc, char **argv);
 // -- board related funcs
 settings_t init(char mode);
 void setup_players_patterns(ll_player_info_t *player_info, int *proportions);
-int add_token_in_row(int key, cell_t **board);
+int add_token_in_row(int key, cell_t **board, int *arrow_pos);
 
 
 // -- display functions

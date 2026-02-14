@@ -7,11 +7,13 @@
 
 #include "config.h"
 
-int add_token_in_row(int key, cell_t **board)
+int add_token_in_row(int key, cell_t **board, int *arrow_pos)
 {
     int column = key - '0' - 1;
     int row = 5;
 
+    if (key == '\n')
+        column = *arrow_pos - 1;
     while (row >= 0) {
         if ((board[row][column]).taken == 0) {
             board[row][column].taken = 1;

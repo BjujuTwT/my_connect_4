@@ -5,6 +5,8 @@
 ** displays the stand right bellow the board
 */
 
+#include <stdlib.h>
+
 #include "config.h"
 
 static void stand_number(WINDOW *screen, int cell_w,
@@ -18,6 +20,22 @@ static void stand_number(WINDOW *screen, int cell_w,
     if (column_filled != 0)
         waddstr(screen, " ");
     waddstr(screen, "│");
+    return;
+}
+
+void display_arrow(settings_t *settings, int cell_w, int line_arrow)
+{
+    WINDOW *screen = settings->screen;
+    int arrow_column = settings->col_arrow;
+    int offset = settings->proportions[2];
+    int coord_x = (cell_w + 1) * (arrow_column - 1) + (cell_w / 2) + 1 + offset;
+
+    if (arrow_column <= 0)
+        return;
+    //endwin();
+    //printf("%i\n", line_arrow);
+    //exit(0);
+    mvwaddstr(screen, line_arrow, coord_x, "🠅");
     return;
 }
 
@@ -39,5 +57,6 @@ void display_stand(WINDOW *screen, settings_t *settings)
         stand_number(screen, cell_w, cell_nb + 1, column_filled);
     }
     waddstr(screen, "╯");
+    display_arrow(settings, cell_w, line_stand + 2);
     return;
 }
