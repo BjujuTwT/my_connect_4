@@ -26,6 +26,27 @@ static wchar_t **cross_pattern(wchar_t **pattern, int width, int height)
     return pattern;
 }
 
+static wchar_t **circle_pattern(wchar_t **pattern, int width, int height)
+{
+    if (height == 1) {
+        pattern[0][width / 2 + 1 - 1] = L'O';
+        return pattern;
+    }
+    for (int circle_up = 0; circle_up < width; circle_up++)
+        pattern[0][circle_up] = L'─';
+    for (int circle_down = 0; circle_down < width; circle_down++)
+        pattern[height - 1][circle_down] = L'─';
+    for (int circle_left = 0; circle_left < height; circle_left++)
+        pattern[circle_left][0] = L'│';
+    for (int circle_right = 0; circle_right < height; circle_right++)
+        pattern[circle_right][width - 1] = L'│';
+    pattern[0][0] = L'╭';
+    pattern[0][width - 1] = L'╮';
+    pattern[height - 1][0] = L'╰';
+    pattern[height - 1][width - 1] = L'╯';
+    return pattern;
+}
+
 static wchar_t **malloc_pattern(int width, int height)
 {
     wchar_t **pattern = NULL;
@@ -49,7 +70,7 @@ void setup_players_patterns(ll_player_info_t *player_info, int *proportions)
     wchar_t **pattern_p2 = malloc_pattern(width, height);
 
     pattern_p1 = cross_pattern(pattern_p1, width, height);
-    pattern_p2 = cross_pattern(pattern_p2, width, height);
+    pattern_p2 = circle_pattern(pattern_p2, width, height);
     player_info->pattern = pattern_p1;
     player_info->next->pattern = pattern_p2;
     return;
