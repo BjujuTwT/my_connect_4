@@ -6,6 +6,8 @@
 ** and player pattern(s)
 */
 
+#include <stdlib.h>
+
 #include "config.h"
 #include "my.h"
 
@@ -20,10 +22,23 @@ static void display_pattern_coordinates(settings_t *settings,
     return;
 }
 
+static ll_player_info_t *get_player_from_index(ll_player_info_t *player,
+    int index)
+{
+    if (player == NULL) {
+        endwin();
+        printf("%i\n", index);
+        exit(0);
+    }
+    if (player->index == index)
+        return player;
+    return get_player_from_index(player->next, index);
+}
+
 static void place_token(settings_t *settings,
     int row, int column)
 {
-    ll_player_info_t *pl_ptr = settings->player_info;
+    ll_player_info_t *pl_ptr = NULL;
     cell_t cell = (settings->board)[row][column];
     int played_by = cell.taken;
     int *props = settings->proportions;
@@ -32,11 +47,8 @@ static void place_token(settings_t *settings,
     int pos_x = (2 * x_mid * column) + 1 + props[2];
     int pos_y = (2 * y_mid * row) + 1;
 
-    while (pl_ptr->index != played_by && pl_ptr->index != -played_by)
-        pl_ptr = pl_ptr->next;
-    if (cell.taken != 0)
-        display_pattern_coordinates(settings, pos_x, pos_y, pl_ptr);
-    //settings->player_info = pl_ptr;
+    pl_ptr = get_player_from_index(settings->player_info, played_by);
+    display_pattern_coordinates(settings, pos_x, pos_y, pl_ptr);
     return;
 }
 
@@ -58,12 +70,5 @@ void display_cells(settings_t *settings)
 
     for (int row = 0; row < height; row++)
         display_cell_row(settings, row, width);
-    if (settings->player_turn < 0) {
-        settings->player_turn *= -1;
-        if (settings->player_info->next == NULL)
-            settings->player_turn = 1;
-        else
-            settings->player_turn += 1;
-    }
     return;
 }

@@ -51,6 +51,12 @@ settings_t init(char mode);
 void setup_players_patterns(ll_player_info_t *player_info, int *proportions);
 
 
+// -- Data mutating functions (they change some data with calculations)
+int add_token_in_col(int key, cell_t **board, int *arrow_pos, int player_turn);
+int move_arrow(int key, cell_t **board, int *arrow_pos, int width);
+void next_turn(int *current_turn, int nb_players);
+
+
 // -- display functions
 // pre game
 void display_color(char *msg, char *color, int std);
@@ -64,8 +70,6 @@ void display_stand(WINDOW *screen, settings_t *settings);
 
 // -- event handling
 void wait_for_next_move(settings_t *settings);
-int add_token_in_col(int key, cell_t **board, int *arrow_pos, int player_turn);
-int move_arrow(int key, cell_t **board, int *arrow_pos, int width);
 
 
 

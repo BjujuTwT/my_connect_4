@@ -50,6 +50,6 @@ void wait_for_next_move(settings_t *settings)
         key_pressed = do_action(wgetch(screen), settings, col_arrow, width);
     }
     if (key_pressed == 2)
-        settings->player_turn *= -1;
+        next_turn(&(settings->player_turn), settings->nb_players);
     return;
 }

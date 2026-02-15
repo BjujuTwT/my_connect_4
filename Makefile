@@ -51,8 +51,6 @@ NAME_MY =       libmy.a
 
 SRC_PROJ	=	main.c	\
 			event_handling/wait_for_next_move.c	\
-			event_handling/add_token_in_column.c	\
-			event_handling/move_arrow.c	\
 			error_handling/error_handler.c	\
 			board/settings_init.c	\
 			board/players_patterns.c	\
@@ -61,6 +59,9 @@ SRC_PROJ	=	main.c	\
 			display/display_color.c	\
 			display/display_cells.c	\
 			display/display_stand.c	\
+			data_mutating/add_token_in_column.c	\
+			data_mutating/move_arrow.c	\
+			data_mutating/setup_turns.c	\
 
 SRC_PROJ_PREFIX	=	$(addprefix src/, $(SRC_PROJ))
 
@@ -95,7 +96,7 @@ clean:
 	rm -f include/*~ include/*# include/*.pch
 	rm -f src/*~ 
 	rm -f src/*~ src/*# src/error_handling/*~ src/error_handling/*# src/event_handling/*~ src/event_handling/*#
-	rm -f src/display/*~ src/display/*# src/board/*~ src/board/*# ressources/*~ ressources/*#
+	rm -f src/display/*~ src/display/*# src/board/*~ src/board/*# ressources/*~ ressources/*# src/data_mutating/*~ src/data_mutating/*#
 
 fclean: clean
 	rm -f *.gcda *.gcno
