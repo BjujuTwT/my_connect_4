@@ -32,9 +32,6 @@ void display_arrow(settings_t *settings, int cell_w, int line_arrow)
 
     if (arrow_column <= 0)
         return;
-    //endwin();
-    //printf("%i\n", line_arrow);
-    //exit(0);
     mvwaddstr(screen, line_arrow, coord_x, "🠅");
     return;
 }

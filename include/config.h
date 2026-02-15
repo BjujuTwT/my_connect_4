@@ -24,15 +24,21 @@ typedef struct linked_list_player_info {
 } ll_player_info_t;
 
 typedef struct game {
+
+    // For both
+    struct linked_list_player_info *player_info;   // ^
+    cell_t **board;
+    int nb_players;
+    int player_turn;
+    int col_arrow;
+
+    // For Ncurses
     int width;
     int height;
-    cell_t **board;
-    int col_arrow;
-    int *proportions;
-    int nb_players;
+    int *proportions;  // [cell width, cell height, left offset]
     WINDOW *screen;
-    int to_terminate;
-    struct linked_list_player_info *player_info;
+    int to_terminate; // temporary, CSFML not implemented
+
 } settings_t;
 
 
@@ -43,7 +49,6 @@ int error_handler(int argc, char **argv);
 // -- board related funcs
 settings_t init(char mode);
 void setup_players_patterns(ll_player_info_t *player_info, int *proportions);
-int add_token_in_row(int key, cell_t **board, int *arrow_pos);
 
 
 // -- display functions
@@ -59,6 +64,8 @@ void display_stand(WINDOW *screen, settings_t *settings);
 
 // -- event handling
 void wait_for_next_move(settings_t *settings);
+int add_token_in_col(int key, cell_t **board, int *arrow_pos, int player_turn);
+int move_arrow(int key, cell_t **board, int *arrow_pos, int width);
 
 
 

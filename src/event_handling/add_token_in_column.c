@@ -7,7 +7,7 @@
 
 #include "config.h"
 
-int add_token_in_row(int key, cell_t **board, int *arrow_pos)
+int add_token_in_col(int key, cell_t **board, int *arrow_pos, int player_turn)
 {
     int column = key - '0' - 1;
     int row = 5;
@@ -16,8 +16,8 @@ int add_token_in_row(int key, cell_t **board, int *arrow_pos)
         column = *arrow_pos - 1;
     while (row >= 0) {
         if ((board[row][column]).taken == 0) {
-            board[row][column].taken = 1;
-            return 1;
+            board[row][column].taken = player_turn;
+            return 2;
         }
         row--;
     }

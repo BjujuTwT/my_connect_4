@@ -7,3 +7,4 @@ connect_4
 *.gcno
 temp
 temp.txt
+libmy.a

@@ -51,10 +51,11 @@ NAME_MY =       libmy.a
 
 SRC_PROJ	=	main.c	\
 			event_handling/wait_for_next_move.c	\
+			event_handling/add_token_in_column.c	\
+			event_handling/move_arrow.c	\
 			error_handling/error_handler.c	\
 			board/settings_init.c	\
 			board/players_patterns.c	\
-			board/add_token_in_row.c	\
 			display/display_ncurse.c	\
 			display/display_help.c	\
 			display/display_color.c	\
@@ -73,7 +74,7 @@ LDFLAGS =      	 -l csfml-graphics -l csfml-system -Llib/ -lmy -lncursesw
 
 CPPFLAGS =	-Iinclude
 
-CFLAGS  =       -Wall -Wextra -Wconversion -Werror
+CFLAGS  =       -Wall -Wextra -Wconversion -Werror -g3
 
 
 all:	$(NAME_MY) $(NAME_PROJ)

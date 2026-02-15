@@ -9,9 +9,10 @@
 #include "config.h"
 #include "my.h"
 
-static void display_pattern_coordinates(WINDOW *screen,
+static void display_pattern_coordinates(settings_t *settings,
     int x, int y, ll_player_info_t *player_info)
 {
+    WINDOW *screen = settings->screen;
     wchar_t **pattern = player_info->pattern;
 
     for (int i = 0; pattern[i] != NULL; i++)
@@ -19,19 +20,34 @@ static void display_pattern_coordinates(WINDOW *screen,
     return;
 }
 
-static void place_token(settings_t *settings, int row, int column)
+static void place_token(settings_t *settings,
+    int row, int column)
 {
-    cell_t **board = settings->board;
-    WINDOW *screen = settings->screen;
-    ll_player_info_t *player = settings->player_info;
+    ll_player_info_t *pl_ptr = settings->player_info;
+    cell_t cell = (settings->board)[row][column];
+    int played_by = cell.taken;
     int *props = settings->proportions;
     int x_mid = (props[0] / 2) + 1;
     int y_mid = (props[1] / 2) + 1;
     int pos_x = (2 * x_mid * column) + 1 + props[2];
     int pos_y = (2 * y_mid * row) + 1;
 
-    if (board[row][column].taken != 0)
-        display_pattern_coordinates(screen, pos_x, pos_y, player);
+    while (pl_ptr->index != played_by && pl_ptr->index != -played_by)
+        pl_ptr = pl_ptr->next;
+    if (cell.taken != 0)
+        display_pattern_coordinates(settings, pos_x, pos_y, pl_ptr);
+    //settings->player_info = pl_ptr;
+    return;
+}
+
+static void display_cell_row(settings_t *settings, int row, int width)
+{
+    cell_t *board_row = (settings->board)[row];
+
+    for (int column = 0; column < width; column++) {
+        if (board_row[column].taken != 0)
+            place_token(settings, row, column);
+    }
     return;
 }
 
@@ -40,9 +56,14 @@ void display_cells(settings_t *settings)
     int width = settings->width;
     int height = settings->height;
 
-    for (int row = 0; row < height; row++) {
-        for (int column = 0; column < width; column++)
-            place_token(settings, row, column);
+    for (int row = 0; row < height; row++)
+        display_cell_row(settings, row, width);
+    if (settings->player_turn < 0) {
+        settings->player_turn *= -1;
+        if (settings->player_info->next == NULL)
+            settings->player_turn = 1;
+        else
+            settings->player_turn += 1;
     }
     return;
 }
