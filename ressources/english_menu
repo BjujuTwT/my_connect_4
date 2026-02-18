@@ -1,4 +1,4 @@
-\x1b[38;5;161mHello!\x1b[0m
+Hello!
 
 
 This little program simulates a 2 player connect 4, either with ncurses, or CSFML !

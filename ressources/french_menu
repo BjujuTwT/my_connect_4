@@ -1,4 +1,4 @@
-\x1b[38;5;26m Bonjour! \x1b[0m
+Bonjour!
 
 
 Ce petit programme simule un puissance 4 à deux joueurs, soit avec ncurses, soit CSFML !
