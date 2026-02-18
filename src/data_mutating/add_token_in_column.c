@@ -17,6 +17,7 @@ int add_token_in_col(int key, cell_t **board, int *arrow_pos, int player_turn)
     while (row >= 0) {
         if ((board[row][column]).taken == 0) {
             board[row][column].taken = player_turn;
+            *arrow_pos = column + 1;
             return 2;
         }
         row--;

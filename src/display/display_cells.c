@@ -27,14 +27,6 @@ static void display_pattern_coordinates(settings_t *settings,
     return;
 }
 
-static ll_player_info_t *get_player_from_index(ll_player_info_t *player,
-    int index)
-{
-    if (player->index == index)
-        return player;
-    return get_player_from_index(player->next, index);
-}
-
 static void place_token(settings_t *settings,
     int row, int column)
 {
@@ -47,7 +39,7 @@ static void place_token(settings_t *settings,
     int pos_x = (2 * x_mid * column) + 1 + props[2];
     int pos_y = (2 * y_mid * row) + 1;
 
-    pl_ptr = get_player_from_index(settings->player_info, played_by);
+    pl_ptr = get_player_from_turn(settings->player_info, played_by);
     display_pattern_coordinates(settings, pos_x, pos_y, pl_ptr);
     return;
 }

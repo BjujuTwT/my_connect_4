@@ -17,8 +17,9 @@ static int check_exit_key(int key, int exit_key)
     return 0;
 }
 
-static int do_action(int key, settings_t *settings, int *arrow_pos, int width)
+static int do_action(int key, settings_t *settings, int width)
 {
+    int *arrow_pos = &(settings->col_arrow);
     cell_t **board = settings->board;
     int exit_1 = 'q';
     int exit_2 = 'a';
@@ -41,13 +42,12 @@ void wait_for_next_move(settings_t *settings)
     WINDOW *screen = settings->screen;
     int key_pressed = 0;
     int sleep_interval = 50;
-    int *col_arrow = &(settings->col_arrow);
     int width = settings->width;
 
     flushinp();
     while (key_pressed == 0) {
         napms(sleep_interval);
-        key_pressed = do_action(wgetch(screen), settings, col_arrow, width);
+        key_pressed = do_action(wgetch(screen), settings, width);
     }
     if (key_pressed == 2)
         next_turn(&(settings->player_turn), settings->nb_players);

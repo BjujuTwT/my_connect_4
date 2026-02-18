@@ -49,7 +49,7 @@ int error_handler(int argc, char **argv);
 // -- board related funcs
 settings_t init(char mode);
 void setup_players_patterns(ll_player_info_t *player_info, int *proportions);
-
+ll_player_info_t *get_player_from_turn(ll_player_info_t *player, int turn);
 
 // -- Data mutating functions (they change some data with calculations)
 int add_token_in_col(int key, cell_t **board, int *arrow_pos, int player_turn);

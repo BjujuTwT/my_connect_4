@@ -54,6 +54,7 @@ SRC_PROJ	=	main.c	\
 			error_handling/error_handler.c	\
 			board/settings_init.c	\
 			board/players_patterns.c	\
+			board/get_player_from_turn.c	\
 			display/display_ncurse.c	\
 			display/display_help.c	\
 			display/display_color.c	\
