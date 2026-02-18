@@ -5,11 +5,18 @@
 ** displays all necessary informations
 */
 
-#include "config.h"
-
 #include "my.h"
 #include "macro_colors.h"
 #include "config.h"
+
+static void display_file_unavailable(char *filepath)
+{
+    display_color("Ressource files are unavailable.\n", CRIMSON, 2);
+    display_color("Missing : ", CRIMSON, 2);
+    display_color(filepath, CYAN, 2);
+    write(2, "\n", 1);
+    return;
+}
 
 static int display_file_content(char *filepath)
 {
@@ -19,10 +26,7 @@ static int display_file_content(char *filepath)
     long return_value = 0;
 
     if (fd == NULL) {
-        display_color("Ressource files are unavailable.\n", CRIMSON, 2);
-        display_color("Missing : ", CRIMSON, 2);
-        display_color(filepath, CYAN, 2);
-        write(2, "\n", 1);
+        display_file_unavailable(filepath);
         return 84;
     }
     my_putstr("\n");
@@ -39,7 +43,7 @@ void display_help_examples(int std)
     char *msg_en = "Try : ./connect_4 -h\n\0";
     char *msg_fr = "Essayez : ./connect_4 -f\n\n\0";
 
-    display_color(msg_en, RED, std);
+    display_color(msg_en, PINK, std);
     display_color(msg_fr, BLUE, std);
     return;
 }

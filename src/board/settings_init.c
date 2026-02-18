@@ -24,6 +24,10 @@ void ncurses_init(settings_t *settings)
     if (has_colors() == true) {
         start_color();
         use_default_colors();
+        init_color(COLOR_RED, 1000, 106, 59);
+        init_pair(1, COLOR_RED, -1);
+        init_color(COLOR_YELLOW, 1000, 909, 231);
+        init_pair(2, COLOR_YELLOW, -1);
     }
     settings->screen = screen;
     return;
@@ -55,10 +59,12 @@ static ll_player_info_t *setup_players_struct(settings_t *settings)
 
     player_info = malloc(sizeof(ll_player_info_t));
     player_info->index = 1;
+    player_info->color = 1;
     player_info->next = NULL;
     if (nb_players == 2) {
         player_info->next = malloc(sizeof(ll_player_info_t));
         player_info->next->index = 2;
+        player_info->next->color = 2;
         player_info->next->next = NULL;
     }
     setup_players_patterns(player_info, proportions);

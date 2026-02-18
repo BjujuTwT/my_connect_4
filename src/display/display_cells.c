@@ -16,20 +16,20 @@ static void display_pattern_coordinates(settings_t *settings,
 {
     WINDOW *screen = settings->screen;
     wchar_t **pattern = player_info->pattern;
+    int color = player_info->color;
 
+    if (has_colors() == true)
+        wattron(screen, COLOR_PAIR(color));
     for (int i = 0; pattern[i] != NULL; i++)
         mvwprintw(screen, y + i, x, "%ls", pattern[i]);
+    if (has_colors() == true)
+        wattroff(screen, COLOR_PAIR(color));
     return;
 }
 
 static ll_player_info_t *get_player_from_index(ll_player_info_t *player,
     int index)
 {
-    if (player == NULL) {
-        endwin();
-        printf("%i\n", index);
-        exit(0);
-    }
     if (player->index == index)
         return player;
     return get_player_from_index(player->next, index);

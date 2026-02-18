@@ -1,4 +1,4 @@
-Bonjour!
+\x1b[38;5;26m Bonjour! \x1b[0m
 
 
 Ce petit programme simule un puissance 4 à deux joueurs, soit avec ncurses, soit CSFML !
@@ -20,7 +20,7 @@ Drapeaux :
 -f / -h : affiche le menu d'aide en français / anglais
 
 
-Interractions :
+Interactions :
 
 '1' à '7' : colonne à jouer
 'q' : quitte le programme
@@ -29,10 +29,10 @@ Interractions :
 
 Si vous ne connaissez pas le puissance 4, voici les règles :
 
-The but est d'être le premier à aligner 4 pions à la verticale, horizontale, ou diagonale.
+Le but est d'être le premier à aligner 4 pions à la verticale, horizontale, ou diagonale.
 Chaque joueur joue à son tour, plaçant un pion dans une des colonnes de la grille de jeu.
-Les pions occuppent toujours l'endroit le plus bas sur la colonne jouée, et ne peuvent pas être bougés.
-Si personne n'aligne 4 pions avant que la grille soit complète, le jeu se finit en match nul.
+Les pions occupent toujours l'endroit le plus bas sur la colonne jouée, et ne peuvent pas être bougés.
+Si personne ne réussit à aligner 4 pions avant que la grille soit complète, le jeu se finit en match nul.
 
 
 Amusez vous bien!

@@ -1,4 +1,4 @@
-Hello!
+\x1b[38;5;161mHello!\x1b[0m
 
 
 This little program simulates a 2 player connect 4, either with ncurses, or CSFML !
@@ -20,7 +20,7 @@ Flags :
 -h / -f : displays the help menu in english / french
 
 
-Interractions :
+Interactions :
 
 '1' to '7' : row to play
 'q' : exit the program
@@ -29,10 +29,10 @@ Interractions :
 
 If you don't know about connect 4, here are the rules :
 
-The goal is to be the first to align 4 discs vertically, horizontally, or diagonally.
-Each player takes turn dropping a disc into one of the rows in the playing grid.
-The discs will always occupy the lowest spot on the row played, and can't be changed.
-If no one aligns 4 discs before the board is full, the game ends up with a draw.
+The goal is to be the first to align 4 tokens vertically, horizontally, or diagonally.
+Each player takes turns dropping a token into one of the rows in the playing grid.
+The token will always occupy the lowest spot on the row played, and can't be changed.
+If no one aligns 4 tokens before the board is full, the game ends up with a draw.
 
 
 Have fun!

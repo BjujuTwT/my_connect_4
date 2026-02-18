@@ -17,7 +17,7 @@
     #define CYAN "\x1b[38;5;6m"
 
     // How to : help menu
-    #define RED "\x1b[38;5;161m"
+    #define PINK "\x1b[38;5;161m"
     #define BLUE "\x1b[38;5;26m"
 
     // Basic color
