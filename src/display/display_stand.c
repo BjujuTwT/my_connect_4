@@ -37,7 +37,7 @@ void display_arrow(settings_t *settings, int cell_w, int line_arrow)
         return;
     if (has_colors() == true)
         wattron(screen, COLOR_PAIR(color));
-    mvwaddstr(screen, line_arrow, coord_x, "🠅");
+    mvwaddstr(screen, line_arrow, coord_x, "🠵");
     if (has_colors() == true)
         wattroff(screen, COLOR_PAIR(color));
     return;
