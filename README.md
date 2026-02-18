@@ -10,3 +10,5 @@ Basic connect 4 in C in two versions, made during my first year studying C
 >  
 > To start in **ncurses** :  
 > ./my_connect_4 -n
+
+<img width="2879" height="1545" alt="image" src="https://github.com/user-attachments/assets/3b4256f5-250b-4d62-a1b2-35f19833af34" />
