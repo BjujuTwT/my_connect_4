@@ -11,11 +11,31 @@
 #include "config.h"
 #include "my.h"
 
+static wchar_t **even_cross_pattern(wchar_t **pattern, int width, int height)
+{
+    int middle_x = width / 2 + 1 - 1;
+    int lower_y = height / 2 - 1;
+    int higher_y = height / 2;
+    int offset_x = 1;
+    int offset_y = 1;
+
+    for (; offset_x < middle_x; offset_x += 2) {
+        pattern[lower_y - offset_y + 1][middle_x - offset_x] = L'╲';
+        pattern[higher_y + offset_y - 1][middle_x - offset_x] = L'╱';
+        pattern[lower_y - offset_y + 1][middle_x + offset_x] = L'╱';
+        pattern[higher_y + offset_y - 1][middle_x + offset_x] = L'╲';
+        offset_y++;
+    }
+    return pattern;
+}
+
 static wchar_t **cross_pattern(wchar_t **pattern, int width, int height)
 {
     int middle_x = width / 2 + 1 - 1;
     int middle_y = height / 2 + 1 - 1;
 
+    if (height % 2 == 0)
+        return even_cross_pattern(pattern, width, height);
     pattern[middle_y][middle_x] = L'╳';
     for (int offset = 1; offset <= middle_y; offset++) {
         pattern[middle_y - offset][middle_x - offset] = L'╲';

@@ -12,9 +12,9 @@
 
 int get_x_from_column(settings_t *settings, int col)
 {
-    int *props = settings->proportions;
-    int x_mid = (props[0] / 2) + 1;
-    int pos_x = (2 * x_mid * (col - 1)) + 1 + props[2];
+    int cell_width = (settings->proportions)[0];
+    int offset = (settings->proportions)[2];
+    int pos_x = (col - 1) * (cell_width + 1) + 1 + offset;
 
     return pos_x;
 }
@@ -22,8 +22,7 @@ int get_x_from_column(settings_t *settings, int col)
 int get_y_from_row(settings_t *settings, int row)
 {
     int cell_height = (settings->proportions)[1];
-    int y_mid = (cell_height / 2) + 1;
-    int pos_y = (2 * y_mid * (row - 1)) + 1;
+    int pos_y = (row - 1) * (cell_height + 1) + 1;
 
     return pos_y;
 }
