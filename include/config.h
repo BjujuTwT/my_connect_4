@@ -11,6 +11,7 @@
     #include <wchar.h>
 
 
+
 typedef struct cell {
     int taken;
     int ncurses_color;
@@ -42,13 +43,18 @@ typedef struct game {
 } settings_t;
 
 
+
 // -- error handling
 int error_handler(int argc, char **argv);
 
 
 // -- board related funcs
+// init
 settings_t init(char mode);
+void ncurses_init(settings_t *settings);
+void csfml_init(settings_t *settings);
 void setup_players_patterns(ll_player_info_t *player_info, int *proportions);
+// in game
 ll_player_info_t *get_player_from_turn(ll_player_info_t *player, int turn);
 
 // -- Data mutating functions (they change some data with calculations)

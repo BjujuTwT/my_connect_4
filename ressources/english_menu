@@ -1,38 +1,38 @@
-Hello!
+[38;5;161mHello![0m
 
 
-This little program simulates a 2 player connect 4, either with ncurses, or CSFML !
+This little program simulates a 2 player [38;5;75mconnect 4,[0m either with [38;5;178mncurses,[0m or [38;5;34mCSFML ![0m
 
-If you are a tty user, go with ncurses. It's simpler and doesn't use a graphical library.
-If you want more detailed things with sprites and prettier things to look at, use CSFML !
+If you are a tty user, go with [38;5;178mncurses.[0m It's simpler and doesn't use a [38;5;34mgraphical library.[0m
+If you want more detailed things with sprites and prettier things to look at, use [38;5;34mCSFML ![0m
 
 
 
 Usage :
 
-./connect_4 [flag]
+[38;5;75m./connect_4[0m [38;5;99m[flag][0m
 
 
-Flags :
+[38;5;99mFlags :[0m
 
--n : starts in ncurses
--c : starts in CSFML
--h / -f : displays the help menu in english / french
-
-
-Interactions :
-
-'1' to '7' : row to play
-'q' : exit the program
+[38;5;99m-n :[0m  starts in [38;5;178mncurses[0m
+[38;5;99m-c :[0m  starts in [38;5;34mCSFML[0m
+[38;5;161m-h /[0m [38;5;26m-f :[0m  displays the help menu in [38;5;161menglish /[0m [38;5;26mfrench[0m
 
 
+[38;5;219mInteractions :[0m
 
-If you don't know about connect 4, here are the rules :
-
-The goal is to be the first to align 4 tokens vertically, horizontally, or diagonally.
-Each player takes turns dropping a token into one of the rows in the playing grid.
-The token will always occupy the lowest spot on the row played, and can't be changed.
-If no one aligns 4 tokens before the board is full, the game ends up with a draw.
+[38;5;219m'1' to '7' :[0m  row to play
+[38;5;219m'q' :[0m  exits the program
 
 
-Have fun!
+
+If you don't know about [38;5;75mconnect 4,[0m here are the rules :
+
+The goal is to be the first to align [38;5;172m4 tokens[0m vertically, horizontally, or diagonally.
+Each player takes turns dropping a [38;5;172mtoken[0m into one of the rows in the playing grid.
+The [38;5;172mtoken[0m will always occupy the lowest spot on the row played, and can't be changed.
+If no one aligns [38;5;172m4 tokens[0m before the board is full, the game ends up with a draw.
+
+
+[38;5;161mHave fun![0m

@@ -53,6 +53,8 @@ SRC_PROJ	=	main.c	\
 			event_handling/wait_for_next_move.c	\
 			error_handling/error_handler.c	\
 			board/settings_init.c	\
+			board/ncurses_init.c	\
+			board/csfml_init.c	\
 			board/players_patterns.c	\
 			board/get_player_from_turn.c	\
 			display/display_ncurse.c	\
@@ -95,7 +97,7 @@ cpy:
 clean:
 	rm -f $(OBJ_MY) $(OBJ_PROJ)
 	rm -f include/*~ include/*# include/*.pch
-	rm -f src/*~ 
+	rm -f *~ *#
 	rm -f src/*~ src/*# src/error_handling/*~ src/error_handling/*# src/event_handling/*~ src/event_handling/*#
 	rm -f src/display/*~ src/display/*# src/board/*~ src/board/*# ressources/*~ ressources/*# src/data_mutating/*~ src/data_mutating/*#
 

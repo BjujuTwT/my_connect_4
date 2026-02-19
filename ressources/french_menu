@@ -1,38 +1,38 @@
-Bonjour!
+[38;5;161mBonjour![0m
 
 
-Ce petit programme simule un puissance 4 à deux joueurs, soit avec ncurses, soit CSFML !
+Ce petit programme simule un [38;5;75mpuissance 4,[0m à deux joueurs, soit avec [38;5;178mncurses,[0m soit [38;5;34mCSFML ![0m
 
-Si vous utilisez tty, utilisez ncurses. C'est plus facile et ne nécessite pas une librairie graphique.
-Si vous voulez un jeu plus détaillé avec des sprites, des choses plus jolies, utilisez CSFML
+Si vous utilisez tty, utilisez [38;5;178mncurses.[0m C'est plus facile et ne nécessite pas une [38;5;34mlibrairie graphique.[0m
+Si vous voulez un jeu plus détaillé avec des sprites, des choses plus jolies, utilisez [38;5;34mCSFML ![0m
 
 
 
 Utilisation :
 
-./connect_4 [drapeau]
+[38;5;75m./connect_4[0m [38;5;99m[drapeau][0m
 
 
-Drapeaux :
+[38;5;99mDrapeaux :[0m
 
--n : démarre en ncurses
--c : démarre en CSFML
--f / -h : affiche le menu d'aide en français / anglais
-
-
-Interactions :
-
-'1' à '7' : colonne à jouer
-'q' : quitte le programme
+[38;5;99m-n :[0m  démarre en [38;5;178mncurses[0m
+[38;5;99m-c :[0m  démarre en [38;5;34mCSFML[0m
+[38;5;26m-f /[0m [38;5;161m-h :[0m  affiche le menu d'aide en [38;5;26mfrançais /[0m [38;5;161manglais[0m
 
 
+[38;5;219mInteractions :[0m
 
-Si vous ne connaissez pas le puissance 4, voici les règles :
-
-Le but est d'être le premier à aligner 4 pions à la verticale, horizontale, ou diagonale.
-Chaque joueur joue à son tour, plaçant un pion dans une des colonnes de la grille de jeu.
-Les pions occupent toujours l'endroit le plus bas sur la colonne jouée, et ne peuvent pas être bougés.
-Si personne ne réussit à aligner 4 pions avant que la grille soit complète, le jeu se finit en match nul.
+[38;5;219m'1' à '7' :[0m  colonne à jouer
+[38;5;219m'q' :[0m  quitte le programme
 
 
-Amusez vous bien!
+
+Si vous ne connaissez pas le [38;5;75mpuissance 4,[0m voici les règles :
+
+Le but est d'être le premier à aligner [38;5;172m4 pions[0m à la verticale, horizontale, ou diagonale.
+Chaque joueur joue à son tour, plaçant un [38;5;172mpion[0m dans une des colonnes de la grille de jeu.
+Les [38;5;172mpions[0m occuppent toujours l'endroit le plus bas sur la colonne jouée, et ne peuvent pas être bougés.
+Si personne ne réussit à aligner [38;5;172m4 pions[0m avant que la grille soit complète, le jeu se finit en match nul.
+
+
+[38;5;161mAmusez vous bien![0m
