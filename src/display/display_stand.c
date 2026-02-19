@@ -33,7 +33,7 @@ void display_arrow(settings_t *settings, int cell_w, int line_arrow)
     int offset = settings->proportions[2];
     int coord_x = (cell_w + 1) * (arrow_column - 1) + (cell_w / 2) + 1 + offset;
 
-    if (arrow_column <= 0)
+    if (arrow_column <= 0 || is_board_filled(settings) == 1)
         return;
     if (has_colors() == true)
         wattron(screen, COLOR_PAIR(color));

@@ -56,7 +56,7 @@ static char **corner_array(char *corner1, char *corner2,
     return wstruct;
 }
 
-static void display_board(WINDOW *screen, settings_t *settings)
+void display_board(WINDOW *screen, settings_t *settings)
 {
     int height = settings->height;
     int cell_h = settings->proportions[1];
@@ -74,15 +74,5 @@ static void display_board(WINDOW *screen, settings_t *settings)
             disp_line(screen, settings, line_i, corner_basic);
     }
     disp_line(screen, settings, nb_lines - 1, corner_down);
-    return;
-}
-
-void display_ncurse(settings_t *settings)
-{
-    WINDOW *screen = settings->screen;
-
-    display_board(screen, settings);
-    display_stand(screen, settings);
-    display_cells(settings);
     return;
 }

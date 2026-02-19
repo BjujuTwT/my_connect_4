@@ -56,6 +56,9 @@ void csfml_init(settings_t *settings);
 void setup_players_patterns(ll_player_info_t *player_info, int *proportions);
 // in game
 ll_player_info_t *get_player_from_turn(ll_player_info_t *player, int turn);
+int is_column_filled(settings_t *settings, int column);
+int is_board_filled(settings_t *settings);
+
 
 // -- Data mutating functions (they change some data with calculations)
 int add_token_in_col(int key, cell_t **board, int *arrow_pos, int player_turn);
@@ -69,7 +72,8 @@ void display_color(char *msg, char *color, int std);
 void display_help_examples(int std);
 int display_help(char language);
 // in game
-void display_ncurse(settings_t *settings);
+void display_ncurses(settings_t *settings);
+void display_board(WINDOW *screen, settings_t *settings);
 void display_cells(settings_t *settings);
 void display_stand(WINDOW *screen, settings_t *settings);
 

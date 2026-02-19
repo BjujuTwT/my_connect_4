@@ -32,7 +32,7 @@ int main(int argc, char **argv)
     while (isendwin() == FALSE) {
         waddstr(settings.screen, "!");
         werase(settings.screen);
-        display_ncurse(&settings);
+        display_ncurses(&settings);
         wrefresh(settings.screen);
         wait_for_next_move(&settings);
     }

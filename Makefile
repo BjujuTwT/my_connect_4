@@ -57,7 +57,9 @@ SRC_PROJ	=	main.c	\
 			board/csfml_init.c	\
 			board/players_patterns.c	\
 			board/get_player_from_turn.c	\
-			display/display_ncurse.c	\
+			board/is_board_filled.c	\
+			display/display_ncurses.c	\
+			display/display_board.c	\
 			display/display_help.c	\
 			display/display_color.c	\
 			display/display_cells.c	\
