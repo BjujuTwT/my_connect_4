@@ -28,10 +28,6 @@ static wchar_t **cross_pattern(wchar_t **pattern, int width, int height)
 
 static wchar_t **circle_pattern(wchar_t **pattern, int width, int height)
 {
-    if (height == 1) {
-        pattern[0][width / 2 + 1 - 1] = L'O';
-        return pattern;
-    }
     for (int circle_up = 1; circle_up + 1 < width; circle_up++)
         pattern[0][circle_up] = L'─';
     for (int circle_down = 1; circle_down + 1 < width; circle_down++)
