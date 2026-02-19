@@ -7,6 +7,18 @@
 
 #include "config.h"
 
+static void color_init(void)
+{
+    start_color();
+    use_default_colors();
+    init_color(COLOR_RED, 1000, 106, 59);
+    init_pair(1, COLOR_RED, -1);
+    init_color(COLOR_YELLOW, 1000, 909, 231);
+    init_pair(2, COLOR_YELLOW, -1);
+    init_pair(PREVIEW_COL, COLOR_BLACK, -1);
+    return;
+}
+
 void ncurses_init(settings_t *settings)
 {
     WINDOW *screen;
@@ -17,14 +29,8 @@ void ncurses_init(settings_t *settings)
     keypad(screen, true);
     nodelay(screen, true);
     curs_set(0);
-    if (has_colors() == true) {
-        start_color();
-        use_default_colors();
-        init_color(COLOR_RED, 1000, 106, 59);
-        init_pair(1, COLOR_RED, -1);
-        init_color(COLOR_YELLOW, 1000, 909, 231);
-        init_pair(2, COLOR_YELLOW, -1);
-    }
+    if (has_colors() == true)
+        color_init();
     settings->screen = screen;
     return;
 }

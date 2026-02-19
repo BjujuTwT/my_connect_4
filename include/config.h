@@ -12,7 +12,7 @@
 
 
 
-    #define PREVIEW 5
+    #define PREVIEW_COL 5
     #define EN_PATH "ressources/english_menu"
     #define FR_PATH "ressources/french_menu"
 

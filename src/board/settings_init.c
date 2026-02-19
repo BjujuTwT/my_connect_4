@@ -59,6 +59,7 @@ static void basic_settings(settings_t *settings)
     settings->board = malloc(sizeof(cell_t *) * height);
     for (size_t i = 0; i < height; i++)
         (settings->board)[i] = init_cell_row(width);
+    (settings->board)[5][3].taken = 1;
     settings->player_info = setup_players_struct(settings);
     return;
 }

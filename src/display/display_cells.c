@@ -11,6 +11,41 @@
 #include "config.h"
 #include "my.h"
 
+
+static int get_highest_played(settings_t *settings, int col)
+{
+    int height = settings->height;
+    cell_t **board = settings->board;
+
+    for (int row = height - 1; row >= 0; row--) {
+        if (board[row][col - 1].taken == 0)
+            return row + 1;
+    }
+    return -1;
+}
+
+static void display_preview(settings_t *settings, WINDOW *screen)
+{
+    int arrow_col = settings->col_arrow;
+    int highest_token = get_highest_played(settings, arrow_col);
+    int pos_x = 0;
+    int pos_y = 0;
+    ll_player_info_t *player = NULL;
+
+    if (highest_token == -1)
+        return;
+    pos_x = get_x_from_column(settings, arrow_col);
+    pos_y = get_y_from_row(settings, highest_token);
+    player = get_player_from_turn(settings->player_info, settings->player_turn);
+    if (has_colors() == true)
+        wattron(screen, COLOR_PAIR(PREVIEW_COL));
+    for (int i = 0; (player->pattern)[i] != NULL; i++)
+        mvwprintw(screen, pos_y + i, pos_x, "%ls", (player->pattern)[i]);
+    if (has_colors() == true)
+        wattroff(screen, COLOR_PAIR(PREVIEW_COL));
+    return;
+}
+
 static void display_pattern_coordinates(settings_t *settings,
     int x, int y, ll_player_info_t *player_info)
 {
@@ -33,11 +68,8 @@ static void place_token(settings_t *settings,
     ll_player_info_t *pl_ptr = NULL;
     cell_t cell = (settings->board)[row][column];
     int played_by = cell.taken;
-    int *props = settings->proportions;
-    int x_mid = (props[0] / 2) + 1;
-    int y_mid = (props[1] / 2) + 1;
-    int pos_x = (2 * x_mid * column) + 1 + props[2];
-    int pos_y = (2 * y_mid * row) + 1;
+    int pos_x = get_x_from_column(settings, column + 1);
+    int pos_y = get_y_from_row(settings, row + 1);
 
     pl_ptr = get_player_from_turn(settings->player_info, played_by);
     display_pattern_coordinates(settings, pos_x, pos_y, pl_ptr);
@@ -62,5 +94,6 @@ void display_cells(settings_t *settings)
 
     for (int row = 0; row < height; row++)
         display_cell_row(settings, row, width);
+    display_preview(settings, settings->screen);
     return;
 }

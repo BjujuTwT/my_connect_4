@@ -54,9 +54,9 @@ int display_help(char language)
 
     display_help_examples(1);
     if (language == 'f')
-        return_value = display_file_content("ressources/french_menu");
+        return_value = display_file_content(FR_PATH);
     if (language == 'h')
-        return_value = display_file_content("ressources/english_menu");
+        return_value = display_file_content(EN_PATH);
     if (return_value != 0)
         return 84;
     return 1;
