@@ -26,8 +26,7 @@ static void color_init(void)
 void ncurses_init(settings_t *settings)
 {
     WINDOW *screen = NULL;
-    //int x = 0;
-    //int y = 0;
+
     display_help_examples(1);
     screen = initscr();
     noecho();
@@ -37,9 +36,9 @@ void ncurses_init(settings_t *settings)
     if (has_colors() == true)
         color_init();
     settings->screen = screen;
-    //getmaxyx(screen, y, x);
-    //endwin();
-    //printf("%ix%i\n", x, y);
-    //exit(0);
+    setup_window_size(settings);
+    if (settings->to_terminate != 0)
+        return;
+    setup_players_patterns(settings);
     return;
 }

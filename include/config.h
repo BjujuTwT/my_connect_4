@@ -58,7 +58,8 @@ int error_handler(int argc, char **argv);
 settings_t init(char mode);
 void ncurses_init(settings_t *settings);
 void csfml_init(settings_t *settings);
-void setup_players_patterns(ll_player_info_t *player_info, int *proportions);
+void setup_players_patterns(settings_t *settings);
+void setup_window_size(settings_t *settings);
 
 
 // -- Data mutating functions (they change some data with calculations)
@@ -73,6 +74,9 @@ int is_column_filled(settings_t *settings, int column);
 int is_board_filled(settings_t *settings);
 int get_x_from_column(settings_t *settings, int col);
 int get_y_from_row(settings_t *settings, int row);
+// Not coding style (Epitech's)
+void get_window_size(WINDOW *screen, int *x, int *y);
+
 
 // -- display functions
 // pre game

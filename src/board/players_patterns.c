@@ -78,8 +78,10 @@ static wchar_t **malloc_pattern(int width, int height)
     return pattern;
 }
 
-void setup_players_patterns(ll_player_info_t *player_info, int *proportions)
+void setup_players_patterns(settings_t *settings)
 {
+    ll_player_info_t *player_info = settings->player_info;
+    int *proportions = settings->proportions;
     int width = proportions[0];
     int height = proportions[1];
     wchar_t **pattern_p1 = malloc_pattern(width, height);

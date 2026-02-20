@@ -56,6 +56,7 @@ SRC_PROJ	=	main.c	\
 			board/ncurses_init.c	\
 			board/csfml_init.c	\
 			board/players_patterns.c	\
+			board/window_size.c	\
 			display/display_ncurses.c	\
 			display/display_board.c	\
 			display/display_help.c	\
@@ -68,6 +69,7 @@ SRC_PROJ	=	main.c	\
 			info_gathering/get_player_from_turn.c	\
 			info_gathering/is_board_filled.c	\
 			info_gathering/get_coordinate_from_pos.c	\
+			info_gathering/get_window_size.c	\
 
 SRC_PROJ_PREFIX	=	$(addprefix src/, $(SRC_PROJ))
 
@@ -100,7 +102,7 @@ cpy:
 clean:
 	rm -f $(OBJ_MY) $(OBJ_PROJ)
 	rm -f include/*~ include/*# include/*.pch
-	rm -f *~ *#
+	rm -f *~ *# src/info_gathering/*~ src/info_gathering/*#
 	rm -f src/*~ src/*# src/error_handling/*~ src/error_handling/*# src/event_handling/*~ src/event_handling/*#
 	rm -f src/display/*~ src/display/*# src/board/*~ src/board/*# ressources/*~ ressources/*# src/data_mutating/*~ src/data_mutating/*#
 
