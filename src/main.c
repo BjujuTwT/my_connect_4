@@ -30,7 +30,6 @@ int main(int argc, char **argv)
     if (settings.to_terminate != 0)
         return settings.to_terminate;
     while (isendwin() == FALSE) {
-        waddstr(settings.screen, "!");
         werase(settings.screen);
         display_ncurses(&settings);
         wrefresh(settings.screen);
