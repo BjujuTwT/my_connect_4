@@ -55,7 +55,8 @@ SRC_PROJ	=	main.c	\
 			board/settings_init.c	\
 			board/ncurses_init.c	\
 			board/csfml_init.c	\
-			board/players_patterns.c	\
+			board/setup_players.c	\
+			board/pattern_templates.c	\
 			board/window_size.c	\
 			display/display_ncurses.c	\
 			display/display_board.c	\

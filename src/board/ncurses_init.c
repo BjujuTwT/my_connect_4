@@ -39,6 +39,6 @@ void ncurses_init(settings_t *settings)
     setup_window_size(settings);
     if (settings->to_terminate != 0)
         return;
-    setup_players_patterns(settings);
+    setup_players_struct(settings);
     return;
 }

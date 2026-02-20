@@ -55,11 +55,16 @@ int error_handler(int argc, char **argv);
 
 
 // -- board init related funcs
+// general
 settings_t init(char mode);
 void ncurses_init(settings_t *settings);
 void csfml_init(settings_t *settings);
-void setup_players_patterns(settings_t *settings);
+// window
 void setup_window_size(settings_t *settings);
+// player
+void setup_players_struct(settings_t *settings);
+wchar_t **cross_pattern(wchar_t **pattern, int width, int height);
+wchar_t **circle_pattern(wchar_t **pattern, int width, int height);
 
 
 // -- Data mutating functions (they change some data with calculations)
