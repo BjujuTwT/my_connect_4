@@ -53,8 +53,8 @@ static void basic_settings(settings_t *settings)
     settings->nb_players = 2;
     settings->player_turn = 1;
     settings->proportions = malloc(sizeof(int) * dimensions);
-    settings->proportions[0] = 13;
-    settings->proportions[1] = 6;
+    settings->proportions[0] = 11;
+    settings->proportions[1] = 5;
     settings->proportions[2] = 1;
     settings->board = malloc(sizeof(cell_t *) * height);
     for (size_t i = 0; i < height; i++)

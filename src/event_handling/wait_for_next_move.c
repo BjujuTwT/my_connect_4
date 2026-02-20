@@ -30,7 +30,7 @@ static int do_action(int key, settings_t *settings, int width)
         endwin();
         return 1;
     }
-    if ((key >= '1' && key <= '9') || key == '\n')
+    if ((key >= '1' && key <= '7') || key == '\n')
         return add_token_in_col(key, board, arrow_pos, settings->player_turn);
     if (key == KEY_LEFT || key == KEY_RIGHT)
         return move_arrow(key, board, arrow_pos, width);

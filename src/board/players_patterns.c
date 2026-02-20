@@ -20,10 +20,10 @@ static wchar_t **even_cross_pattern(wchar_t **pattern, int width, int height)
     int offset_y = 1;
 
     for (; offset_x < middle_x; offset_x += 2) {
-        pattern[lower_y - offset_y + 1][middle_x - offset_x] = L'╲';
-        pattern[higher_y + offset_y - 1][middle_x - offset_x] = L'╱';
-        pattern[lower_y - offset_y + 1][middle_x + offset_x] = L'╱';
-        pattern[higher_y + offset_y - 1][middle_x + offset_x] = L'╲';
+        pattern[lower_y - offset_y + 1][middle_x - offset_x] = L'⟍';
+        pattern[higher_y + offset_y - 1][middle_x - offset_x] = L'⟋';
+        pattern[lower_y - offset_y + 1][middle_x + offset_x] = L'⟋';
+        pattern[higher_y + offset_y - 1][middle_x + offset_x] = L'⟍';
         offset_y++;
     }
     return pattern;

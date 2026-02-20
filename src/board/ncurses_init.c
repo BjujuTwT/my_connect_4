@@ -5,6 +5,9 @@
 ** init function for the general structure csfml-orientated
 */
 
+#include <stdlib.h>
+#include <stdio.h>
+
 #include "config.h"
 
 static void color_init(void)
@@ -22,8 +25,9 @@ static void color_init(void)
 
 void ncurses_init(settings_t *settings)
 {
-    WINDOW *screen;
-
+    WINDOW *screen = NULL;
+    //int x = 0;
+    //int y = 0;
     display_help_examples(1);
     screen = initscr();
     noecho();
@@ -33,5 +37,9 @@ void ncurses_init(settings_t *settings)
     if (has_colors() == true)
         color_init();
     settings->screen = screen;
+    //getmaxyx(screen, y, x);
+    //endwin();
+    //printf("%ix%i\n", x, y);
+    //exit(0);
     return;
 }
