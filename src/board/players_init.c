@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** setup_players
+** players_init
 ** File description:
 ** setups the linked list needed to identify every player,
 ** their tokens and IDs
@@ -57,7 +57,7 @@ static void add_new_player(ll_player_info_t **head, int index_player,
 void setup_players_struct(settings_t *settings)
 {
     ll_player_info_t *player_info = NULL;
-    int nb_players = 2;
+    int nb_players = 3;
     wchar_t **pattern = NULL;
 
     settings->nb_players = nb_players;

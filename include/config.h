@@ -12,7 +12,7 @@
 
 
 
-    #define PREVIEW_COL 5
+    #define PREVIEW_COLOR 5
     #define EN_PATH "ressources/english_menu"
     #define FR_PATH "ressources/french_menu"
 
@@ -38,6 +38,7 @@ typedef struct game {
     int nb_players;
     int player_turn;
     int col_arrow;
+    int *last_played;
 
     // For Ncurses
     int width;
