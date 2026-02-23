@@ -62,3 +62,18 @@ wchar_t **circle_pattern(wchar_t **pattern, int width, int height)
     pattern[height - 1][width - 2] = L'╯';
     return pattern;
 }
+
+wchar_t **triangle_pattern(wchar_t **pattern, int width, int height)
+{
+    int middle_x = width / 2 + 1 - 1;
+    int offset = 1;
+
+    for (int i = 0; i + 1 < height; i++) {
+        pattern[i][middle_x - offset] = L'╱';
+        pattern[i][middle_x + offset] = L'╲';
+        offset++;
+    }
+    for (int j = 1; j + 1 < width; j++)
+        pattern[height - 1][j] = L'─';
+    return pattern;
+}

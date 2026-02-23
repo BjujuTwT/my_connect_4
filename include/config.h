@@ -65,6 +65,7 @@ void setup_window_size(settings_t *settings);
 void setup_players_struct(settings_t *settings);
 wchar_t **cross_pattern(wchar_t **pattern, int width, int height);
 wchar_t **circle_pattern(wchar_t **pattern, int width, int height);
+wchar_t **triangle_pattern(wchar_t **pattern, int width, int height);
 
 
 // -- Data mutating functions (they change some data with calculations)

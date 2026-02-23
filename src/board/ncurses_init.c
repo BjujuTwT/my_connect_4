@@ -18,6 +18,7 @@ static void color_init(void)
     init_pair(1, COLOR_RED, -1);
     init_color(COLOR_YELLOW, 1000, 909, 231);
     init_pair(2, COLOR_YELLOW, -1);
+    init_pair(3, COLOR_BLUE, -1);
     init_color(COLOR_BLACK, 271, 271, 271);
     init_pair(PREVIEW_COL, COLOR_BLACK, -1);
     return;

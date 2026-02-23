@@ -41,16 +41,17 @@ settings_t init(char mode)
     settings_t settings;
 
     setlocale(LC_ALL, "");
+    settings.to_terminate = 0;
     if (mode == 'h' || mode == 'f') {
         settings.to_terminate = display_help(mode);
         return settings;
     }
-    settings.to_terminate = 0;
     basic_settings(&settings);
     if (mode == 'n')
         ncurses_init(&settings);
     if (mode == 'c')
         csfml_init(&settings);
-    setup_players_struct(&settings);
+    if (settings.to_terminate == 0)
+        setup_players_struct(&settings);
     return settings;
 }
