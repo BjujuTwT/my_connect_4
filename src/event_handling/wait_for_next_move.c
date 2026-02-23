@@ -17,10 +17,10 @@ static int check_exit_key(int key, int exit_key)
     return 0;
 }
 
-static int do_action(int key, settings_t *settings, int width)
+static int do_action(int key, settings_t *setting, int width)
 {
-    int *arrow_pos = &(settings->col_arrow);
-    cell_t **board = settings->board;
+    int *arrow_pos = &(setting->col_arrow);
+    cell_t **board = setting->board;
     int exit_1 = 'q';
     int exit_2 = 'a';
 
@@ -31,7 +31,7 @@ static int do_action(int key, settings_t *settings, int width)
         return 1;
     }
     if ((key >= '1' && key <= '7') || key == '\n')
-        return add_token_in_col(key, board, arrow_pos, settings->player_turn);
+        return add_token_in_col(setting, key, arrow_pos, setting->player_turn);
     if (key == KEY_LEFT || key == KEY_RIGHT)
         return move_arrow(key, board, arrow_pos, width);
     return 0;

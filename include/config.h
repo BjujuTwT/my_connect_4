@@ -38,7 +38,7 @@ typedef struct game {
     int nb_players;
     int player_turn;
     int col_arrow;
-    int *last_played;
+    int *last_played;  // [row, column]
 
     // For Ncurses
     int width;
@@ -70,7 +70,7 @@ wchar_t **triangle_pattern(wchar_t **pattern, int width, int height);
 
 
 // -- Data mutating functions (they change some data with calculations)
-int add_token_in_col(int key, cell_t **board, int *arrow_pos, int player_turn);
+int add_token_in_col(settings_t *set, int key, int *arrow_pos, int player_turn);
 int move_arrow(int key, cell_t **board, int *arrow_pos, int width);
 void next_turn(int *current_turn, int nb_players);
 

@@ -38,8 +38,9 @@ void ncurses_init(settings_t *settings)
         color_init();
     settings->screen = screen;
     setup_window_size(settings);
-    if (settings->to_terminate != 0)
+    if (settings->to_terminate != 0) {
+        endwin();
         return;
-    setup_players_struct(settings);
-    return;
+    }
+    return setup_players_struct(settings);
 }

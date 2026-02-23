@@ -25,11 +25,15 @@ static void basic_settings(settings_t *settings)
 {
     size_t width = 7;
     size_t height = 6;
+    size_t dimensions = 2;
 
     settings->width = (int)width;
     settings->height = (int)height;
     settings->col_arrow = (int)width / 2 + 1;
     settings->player_turn = 1;
+    settings->last_played = malloc(sizeof(int) * dimensions);
+    (settings->last_played[0]) = -1;
+    (settings->last_played[1]) = -1;
     settings->board = malloc(sizeof(cell_t *) * height);
     for (size_t i = 0; i < height; i++)
         (settings->board)[i] = init_cell_row(width);

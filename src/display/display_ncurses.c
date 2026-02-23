@@ -5,6 +5,8 @@
 ** displays all the things in the window, for ncurses
 */
 
+#include <stdlib.h>
+
 #include "config.h"
 
 void display_ncurses(settings_t *settings)
