@@ -16,5 +16,7 @@ void display_ncurses(settings_t *settings)
     display_board(screen, settings);
     display_stand(screen, settings);
     display_cells(settings);
+    if (settings->last_played[0] >= 0 && settings->last_played[1] >= 0)
+        check_connected(settings);
     return;
 }

@@ -81,6 +81,7 @@ int is_column_filled(settings_t *settings, int column);
 int is_board_filled(settings_t *settings);
 int get_x_from_column(settings_t *settings, int col);
 int get_y_from_row(settings_t *settings, int row);
+int check_connected(settings_t *set);
 // Not coding style (Epitech's)
 void get_window_size(WINDOW *screen, int *x, int *y);
 
@@ -95,6 +96,7 @@ void display_ncurses(settings_t *settings);
 void display_board(WINDOW *screen, settings_t *settings);
 void display_cells(settings_t *settings);
 void display_stand(WINDOW *screen, settings_t *settings);
+void disp_finish_bar(settings_t *settings, int vert, int hori, int diagos);
 
 
 // -- event handling
