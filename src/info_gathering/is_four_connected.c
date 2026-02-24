@@ -44,13 +44,41 @@ static int vertical_check(settings_t *settings,
 static int main_diagonal_check(settings_t *settings,
     int row, int col, int player_i)
 {
-    return 0;
+    int count = 0;
+    int height = settings->height;
+    int width = settings->width;
+
+    if ((settings->board)[row][col].taken != player_i)
+        return 0;
+    if (row + 1 <= settings->last_played[0] && row > 0) {
+        if (col + 1 <= settings->last_played[1] && col > 0)
+            count += main_diagonal_check(settings, row - 1, col - 1, player_i);
+    }
+    if (row + 1 >= settings->last_played[0] && row + 1 < height) {
+        if (col + 1 >= settings->last_played[1] && col + 1 < width)
+            count += main_diagonal_check(settings, row + 1, col + 1, player_i);
+    }
+    return count + 1;
 }
 
 static int anti_diagonal_check(settings_t *settings,
     int row, int col, int player_i)
 {
-    return 0;
+    int count = 0;
+    int height = settings->height;
+    int width = settings->width;
+
+    if ((settings->board)[row][col].taken != player_i)
+        return 0;
+    if (row + 1 <= settings->last_played[0] && row > 0) {
+        if (col + 1 >= settings->last_played[1] && col + 1 < width)
+            count += anti_diagonal_check(settings, row - 1, col + 1, player_i);
+    }
+    if (row + 1 >= settings->last_played[0] && row + 1 < height) {
+        if (col + 1 <= settings->last_played[1] && col > 0)
+            count += anti_diagonal_check(settings, row + 1, col - 1, player_i);
+    }
+    return count + 1;
 }
 
 int check_connected(settings_t *set)

@@ -7,6 +7,16 @@
 
 #include "config.h"
 
+void my_disp_diagonal(settings_t *settings,
+    int corner_x, int corner_y, int diago)
+{
+    if (diago > 0)
+        mvwaddstr(settings->screen, corner_y, corner_x, "╲");
+    else
+        mvwaddstr(settings->screen, corner_y, corner_x, "╱");
+    return;
+}
+
 void disp_finish_bar(settings_t *settings, int hori, int verti, int diagos)
 {
     WINDOW *screen = settings->screen;
@@ -23,7 +33,7 @@ void disp_finish_bar(settings_t *settings, int hori, int verti, int diagos)
     if (verti != 0)
         mvwaddstr(settings->screen, corner_y, corner_x, "│");
     if (diagos != 0)
-        mvwaddstr(settings->screen, corner_y, corner_x, "╳");
+        my_disp_diagonal(settings, corner_x, corner_y, diagos);
     if (has_colors() == true)
         wattroff(screen, COLOR_PAIR(color));
     return;
