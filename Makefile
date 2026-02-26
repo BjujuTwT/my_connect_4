@@ -73,6 +73,7 @@ SRC_PROJ	=	main.c	\
 			info_gathering/get_coordinate_from_pos.c	\
 			info_gathering/get_window_size.c	\
 			info_gathering/is_four_connected.c	\
+			info_gathering/check_finish_bars.c	\
 
 SRC_PROJ_PREFIX	=	$(addprefix src/, $(SRC_PROJ))
 
