@@ -45,11 +45,25 @@ void disp_vert_bar(settings_t *settings, int corner_x, int corner_y)
 void disp_diago_bar(settings_t *settings,
     int corner_x, int corner_y, int diag)
 {
-    if (diag > 0)
-        mvwaddstr(settings->screen, corner_y, corner_x, "╲");
-    else
-        mvwaddstr(settings->screen, corner_y, corner_x, "╱");
-    return;
+    char *chr = malloc(sizeof("⟋"));
+    int cell_height = settings->proportions[1];
+    int side = 0;
+    int pos_x = 0;
+    int pos_y = 0;
+
+    if (diag > 0) {
+        chr = "⟍";
+        side = -1;
+    } else {
+        chr = "⟋";
+        side = 1;
+        corner_y += cell_height - 1;
+    }
+    for (int cell_h = 0; cell_h < cell_height; cell_h++) {
+        pos_x = corner_x + (cell_h * 2 + 1);
+        pos_y = corner_y - (cell_h * side);
+        mvwaddstr(settings->screen, pos_y, pos_x, chr);
+    }
 }
 
 void disp_finish_bar(settings_t *settings, int hori, int verti, int diagos)
