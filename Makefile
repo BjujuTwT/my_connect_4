@@ -52,12 +52,12 @@ NAME_MY =       libmy.a
 SRC_PROJ	=	main.c	\
 			event_handling/wait_for_next_move.c	\
 			error_handling/error_handler.c	\
-			board/settings_init.c	\
-			board/ncurses_init.c	\
-			board/csfml_init.c	\
-			board/players_init.c	\
 			board/pattern_templates.c	\
 			board/window_size.c	\
+			creation/settings_init.c	\
+			creation/ncurses_init.c	\
+			creation/csfml_init.c	\
+			creation/players_init.c	\
 			display/display_ncurses.c	\
 			display/display_board.c	\
 			display/display_help.c	\
