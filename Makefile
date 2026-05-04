@@ -66,7 +66,9 @@ SRC_PROJ	=	main.c	\
 			display/display_color.c	\
 			display/display_cells.c	\
 			display/display_stand.c	\
-			display/display_finish_bar.c	\
+			display/display_bar_horizontal.c	\
+			display/display_bar_vertical.c	\
+			display/display_bar_diagonal.c	\
 			data_mutating/add_token_in_column.c	\
 			data_mutating/move_arrow.c	\
 			data_mutating/setup_turns.c	\
@@ -75,7 +77,6 @@ SRC_PROJ	=	main.c	\
 			info_gathering/get_coordinate_from_pos.c	\
 			info_gathering/get_window_size.c	\
 			info_gathering/is_four_connected.c	\
-			info_gathering/check_finish_bars.c	\
 
 SRC_PROJ_PREFIX	=	$(addprefix src/, $(SRC_PROJ))
 

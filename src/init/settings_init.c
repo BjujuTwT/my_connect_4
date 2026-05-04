@@ -34,6 +34,7 @@ static void basic_settings(settings_t *settings)
     settings->last_played = malloc(sizeof(int) * dimensions);
     (settings->last_played[0]) = -1;
     (settings->last_played[1]) = -1;
+    settings->is_ended = -1;
     settings->board = malloc(sizeof(cell_t *) * height);
     for (size_t i = 0; i < height; i++)
         (settings->board)[i] = init_cell_row(width);

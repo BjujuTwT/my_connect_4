@@ -41,6 +41,7 @@ typedef struct game {
     int player_turn;
     int col_arrow;
     int *last_played;  // [row, column]
+    int is_ended;  // Player ID
 
     // For Ncurses
     int width;
@@ -85,10 +86,7 @@ int is_column_filled(settings_t *settings, int column);
 int is_board_filled(settings_t *settings);
 int get_x_from_column(settings_t *settings, int col);
 int get_y_from_row(settings_t *settings, int row);
-int check_connected(settings_t *set);
-void check_hori(settings_t *settings, int corner_x, int corner_y, int offset);
-void check_verti(settings_t *settings, int corner_x, int corner_y, int offset);
-void check_diago(settings_t *settings, int corner_x, int corner_y, int diago);
+void check_connected(settings_t *set);
 // Not coding style (Epitech's)
 void get_window_size(WINDOW *screen, int *x, int *y);
 
@@ -104,10 +102,9 @@ void display_board(WINDOW *screen, settings_t *settings);
 void display_cells(settings_t *settings);
 void display_stand(WINDOW *screen, settings_t *settings);
 // finish
-void disp_finish_bar(settings_t *settings, int vert, int hori, int diagos);
-void disp_hori_bar(settings_t *settings, int corner_x, int corner_y);
-void disp_vert_bar(settings_t *settings, int corner_x, int corner_y);
-void disp_diago_bar(settings_t *settings, int corner_x, int corner_y, int diag);
+void display_bar_horizontal(settings_t *settings);
+void display_bar_vertical(settings_t *settings);
+void display_bar_diagonal(settings_t *settings, int side);
 
 
 // -- event handling
