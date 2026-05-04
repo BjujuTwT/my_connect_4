@@ -20,6 +20,7 @@ SRC_MY	=	my_compute_square_root.c	\
 		my_merge_sort.c	\
 		my_strlowcase.c	\
 		my_floatncmp.c	\
+		my_lowercase.c	\
 		my_put_array.c	\
 		my_strcutcpy.c	\
 		my_strupcase.c	\
@@ -53,11 +54,12 @@ SRC_PROJ	=	main.c	\
 			event_handling/wait_for_next_move.c	\
 			error_handling/error_handler.c	\
 			board/pattern_templates.c	\
-			board/window_size.c	\
-			creation/settings_init.c	\
-			creation/ncurses_init.c	\
-			creation/csfml_init.c	\
-			creation/players_init.c	\
+			board/game_loop.c	\
+			init/settings_init.c	\
+			init/ncurses_init.c	\
+			init/csfml_init.c	\
+			init/players_init.c	\
+			init/window_size.c	\
 			display/display_ncurses.c	\
 			display/display_board.c	\
 			display/display_help.c	\

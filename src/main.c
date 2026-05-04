@@ -20,17 +20,6 @@ static void free_func(settings_t *settings)
     return;
 }
 
-static void game_loop(settings_t *settings)
-{
-    while (isendwin() == FALSE) {
-        werase(settings->screen);
-        display_ncurses(settings);
-        wrefresh(settings->screen);
-        wait_for_next_move(settings);
-    }
-    return;
-}
-
 int main(int argc, char **argv)
 {
     settings_t settings;

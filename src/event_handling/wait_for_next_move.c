@@ -9,10 +9,11 @@
 #include <stdlib.h>
 
 #include "config.h"
+#include "my.h"
 
 static int check_exit_key(int key, int exit_key)
 {
-    if (key == exit_key || key == exit_key - 32)
+    if (my_lowercase(key) == exit_key)
         return 1;
     return 0;
 }
@@ -21,8 +22,8 @@ static int do_action(int key, settings_t *setting, int width)
 {
     int *arrow_pos = &(setting->col_arrow);
     cell_t **board = setting->board;
-    int exit_1 = 'q';
-    int exit_2 = 'a';
+    int exit_1 = EXIT_KEY1;
+    int exit_2 = EXIT_KEY2;
 
     if (key == -1)
         return 0;

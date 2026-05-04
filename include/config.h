@@ -13,6 +13,8 @@
 
 
     #define PREVIEW_COLOR 5
+    #define EXIT_KEY1 'q'
+    #define EXIT_KEY2 'x'
     #define EN_PATH "ressources/english_menu"
     #define FR_PATH "ressources/french_menu"
 
@@ -45,25 +47,27 @@ typedef struct game {
     int height;
     int *proportions;  // [cell width, cell height, left offset]
     WINDOW *screen;
-    int to_terminate; // temporary, CSFML not implemented
+    int to_terminate;
 
 } settings_t;
 
 
 
-// -- error handling
+// -- Error handling
 int error_handler(int argc, char **argv);
 
 
-// -- board init related funcs
-// general
+// -- Creation functions
+// initialisation
 settings_t init(char mode);
 void ncurses_init(settings_t *settings);
 void csfml_init(settings_t *settings);
-// window
-void setup_window_size(settings_t *settings);
-// player
 void setup_players_struct(settings_t *settings);
+
+
+// -- Board related functions
+void game_loop(settings_t *settings);
+void setup_window_size(settings_t *settings);
 wchar_t **cross_pattern(wchar_t **pattern, int width, int height);
 wchar_t **circle_pattern(wchar_t **pattern, int width, int height);
 wchar_t **triangle_pattern(wchar_t **pattern, int width, int height);
