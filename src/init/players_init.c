@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** players_init
+** connect4
 ** File description:
 ** setups the linked list needed to identify every player,
 ** their tokens and IDs

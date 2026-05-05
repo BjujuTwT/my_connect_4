@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** is_board_filled
+** connect4
 ** File description:
 ** functions to check if a column or the board is filled
 */

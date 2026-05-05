@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** get_window_size
+** connect4
 ** File description:
 ** uses a non-Epitech coding style function, and also doesn't switch x and y
 */

@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** display_stand
+** connect4
 ** File description:
 ** displays the stand right bellow the board
 */

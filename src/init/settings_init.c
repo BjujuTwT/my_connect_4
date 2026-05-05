@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** settings_init.c
+** connect4
 ** File description:
 ** initialisation of the board
 */

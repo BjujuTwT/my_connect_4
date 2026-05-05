@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** display_color.c
+** connect4
 ** File description:
 ** displays in color a text
 */

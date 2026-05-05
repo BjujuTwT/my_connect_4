@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** display_help
+** connect4
 ** File description:
 ** displays all necessary informations
 */

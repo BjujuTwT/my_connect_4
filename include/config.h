@@ -12,9 +12,19 @@
 
 
 
+    // Colors
     #define PREVIEW_COLOR 5
+
+    // Keybinds
     #define EXIT_KEY1 'q'
     #define EXIT_KEY2 'x'
+
+    // Events
+    #define KEY_NOTHING_PRESSED 0
+    #define KEY_PLAYED_EVENT 1
+    #define KEY_OTHER_EVENT 2
+
+    // Ressources
     #define EN_PATH "ressources/english_menu"
     #define FR_PATH "ressources/french_menu"
 

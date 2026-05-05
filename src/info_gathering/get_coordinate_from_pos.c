@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** get_coordinate_from_pos.c
+** connect4
 ** File description:
 ** both functions that gets the coordinates on screen from
 ** positions on the board

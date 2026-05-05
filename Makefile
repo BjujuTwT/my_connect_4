@@ -1,6 +1,6 @@
 ##
 ## EPITECH PROJECT, 2025
-## Makefile
+## connect4
 ## File description:
 ## builds the library of 30 or so func
 ##
@@ -72,7 +72,7 @@ SRC_PROJ	=	main.c	\
 			display/display_preview.c	\
 			data_mutating/add_token_in_column.c	\
 			data_mutating/move_arrow.c	\
-			data_mutating/setup_turns.c	\
+			data_mutating/next_turn.c	\
 			info_gathering/get_player_from_turn.c	\
 			info_gathering/is_board_filled.c	\
 			info_gathering/get_coordinate_from_pos.c	\
@@ -111,7 +111,7 @@ cpy:
 clean:
 	rm -f $(OBJ_MY) $(OBJ_PROJ)
 	rm -f include/*~ include/*# include/*.pch
-	rm -f *~ *# src/info_gathering/*~ src/info_gathering/*#
+	rm -f *~ *# src/info_gathering/*~ src/info_gathering/*# src/init/*~ src/init/*#
 	rm -f src/*~ src/*# src/error_handling/*~ src/error_handling/*# src/event_handling/*~ src/event_handling/*#
 	rm -f src/display/*~ src/display/*# src/board/*~ src/board/*# ressources/*~ ressources/*# src/data_mutating/*~ src/data_mutating/*#
 

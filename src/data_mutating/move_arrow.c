@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** move_arrow.c
+** connect4
 ** File description:
 ** moves the arrow bellow the board
 */
@@ -20,8 +20,8 @@ int move_arrow(int key, cell_t **board, int *arrow_pos, int width)
     for (; i_pos >= 0 && i_pos < width; i_pos += move) {
         if (board[0][i_pos].taken == 0) {
             *arrow_pos = i_pos + 1;
-            return 1;
+            return KEY_OTHER_EVENT;
         }
     }
-    return 0;
+    return KEY_NOTHING_PRESSED;
 }

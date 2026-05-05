@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2026
-** setup_turns
+** connect4
 ** File description:
-** all functions related to setting up turns or getting to the next one
+** gets to the next turn
 */
 
 #include "config.h"

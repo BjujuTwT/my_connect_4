@@ -6,7 +6,7 @@
 ** at the current selected spot
 */
 
-//#include <stddef.h>
+#include <stddef.h>
 
 #include "config.h"
 

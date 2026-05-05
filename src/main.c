@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2026
-** main
+** connect4
 ** File description:
-** main
+** main function
 */
 
 #include <stdlib.h>

@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** display_board
+** connect4
 ** File description:
 ** displays the whole board
 ** ╔─╦─╗
@@ -14,6 +14,7 @@
 ** │   │   │1
 ** ╚───╩───╝
 **      123
+** this example shows why we can't do it evenly
 */
 
 #include <wchar.h>

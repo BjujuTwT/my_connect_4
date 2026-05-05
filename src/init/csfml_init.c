@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** csfml_init
+** connect4
 ** File description:
 ** init function for the general structure csfml-orientated
 */

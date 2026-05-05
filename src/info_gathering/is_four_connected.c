@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** is_four_connected
+** connect4
 ** File description:
 ** ha, did the joke
 */

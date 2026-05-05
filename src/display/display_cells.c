@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** display_cells
+** connect4
 ** File description:
 ** displays each cell based on the cell_t ** struct given
 ** and player pattern(s)

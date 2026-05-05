@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** window_size
+** connect4
 ** File description:
 ** all functions to setup the window's size, by asking the user
 */
@@ -61,7 +61,7 @@ static int get_size_from_user(settings_t *settings)
     get_window_size(settings->screen, &x_max, &y_max);
     display_request(settings->screen, x_max, y_max);
     while (size < '0' || size > '3') {
-        size = my_lowercase(getch());
+        size = my_lowercase(wgetch(settings->screen));
         if (size == EXIT_KEY1 || size == EXIT_KEY2)
             return -1;
         if (size == '\n')

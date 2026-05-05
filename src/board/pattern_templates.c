@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** pattern_templates
+** connect4
 ** File description:
 ** functions to create the different patterns for the tokens of a player
 */

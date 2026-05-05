@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** get_player_from_index
+** connect4
 ** File description:
 ** returns the player struct of this turn's player
 */

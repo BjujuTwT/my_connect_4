@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** display_ncurses
+** connect4
 ** File description:
 ** displays all the things in the window, for ncurses
 ** also handles the end of the game to display it,

@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** error_handler
+** connect4
 ** File description:
 ** handles all types of errors that can be
 ** caused by the executable command

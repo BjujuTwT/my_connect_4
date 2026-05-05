@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** add_token_in_row
+** connect4
 ** File description:
 ** adds the needed token into the deepest available row
 */
@@ -23,9 +23,9 @@ int add_token_in_col(settings_t *set, int key, int *arrow_pos, int player_turn)
             *arrow_pos = column + 1;
             set->last_played[0] = row + 1;
             set->last_played[1] = column + 1;
-            return 2;
+            return KEY_PLAYED_EVENT;
         }
         row--;
     }
-    return 0;
+    return KEY_NOTHING_PRESSED;
 }
