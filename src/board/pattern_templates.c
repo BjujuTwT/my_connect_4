@@ -6,7 +6,7 @@
 */
 
 #include <stdlib.h>
-#include <uchar.h>
+#include <wchar.h>
 
 #include "config.h"
 #include "my.h"
@@ -48,18 +48,15 @@ wchar_t **cross_pattern(wchar_t **pattern, int width, int height)
 
 wchar_t **circle_pattern(wchar_t **pattern, int width, int height)
 {
-    for (int circle_up = 1; circle_up + 1 < width; circle_up++)
-        pattern[0][circle_up] = L'─';
-    for (int circle_down = 1; circle_down + 1 < width; circle_down++)
-        pattern[height - 1][circle_down] = L'─';
-    for (int circle_left = 0; circle_left < height; circle_left++)
-        pattern[circle_left][1] = L'│';
-    for (int circle_right = 1; circle_right < height; circle_right++)
-        pattern[circle_right][width - 2] = L'│';
-    pattern[0][1] = L'╭';
-    pattern[0][width - 2] = L'╮';
-    pattern[height - 1][1] = L'╰';
-    pattern[height - 1][width - 2] = L'╯';
+    size_t nb_corners_in_square = 4;
+    wchar_t *corners = malloc(sizeof(wchar_t) * (nb_corners_in_square));
+
+    corners[0] = L'╭';
+    corners[1] = L'╮';
+    corners[2] = L'╰';
+    corners[3] = L'╯';
+    pattern = make_a_square_with_corners(pattern, corners, width, height);
+    free(corners);
     return pattern;
 }
 

@@ -57,7 +57,7 @@ static char **corner_array(char *corner1, char *corner2,
     return wstruct;
 }
 
-void display_board(WINDOW *screen, settings_t *settings)
+void display_board(settings_t *settings, WINDOW *screen)
 {
     int height = settings->height;
     int cell_h = settings->proportions[1];

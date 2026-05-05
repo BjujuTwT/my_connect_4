@@ -55,6 +55,7 @@ SRC_PROJ	=	main.c	\
 			error_handling/error_handler.c	\
 			board/pattern_templates.c	\
 			board/game_loop.c	\
+			board/make_a_square_with_corners.c	\
 			init/settings_init.c	\
 			init/ncurses_init.c	\
 			init/csfml_init.c	\

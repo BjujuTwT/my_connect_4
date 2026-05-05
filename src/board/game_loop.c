@@ -28,7 +28,6 @@ void game_loop(settings_t *settings)
             handle_end();
             break;
         }
-        wrefresh(settings->screen);
         wait_for_next_move(settings);
     }
     return;

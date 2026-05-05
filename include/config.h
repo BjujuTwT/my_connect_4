@@ -82,6 +82,8 @@ void setup_window_size(settings_t *settings);
 wchar_t **cross_pattern(wchar_t **pattern, int width, int height);
 wchar_t **circle_pattern(wchar_t **pattern, int width, int height);
 wchar_t **triangle_pattern(wchar_t **pattern, int width, int height);
+wchar_t **make_a_square_with_corners
+(wchar_t **pattern, wchar_t *corners, int width, int height);
 
 
 // -- Data mutating functions (they change some data with calculations)
@@ -109,7 +111,7 @@ void display_help_examples(int std);
 int display_help(char language);
 // in game
 void display_ncurses(settings_t *settings);
-void display_board(WINDOW *screen, settings_t *settings);
+void display_board(settings_t *settings, WINDOW *screen);
 void display_cells(settings_t *settings);
 void display_stand(settings_t *settings, WINDOW *screen);
 void display_preview(settings_t *settings, WINDOW *screen);

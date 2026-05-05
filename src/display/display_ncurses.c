@@ -15,7 +15,7 @@ void display_ncurses(settings_t *settings)
 {
     WINDOW *screen = settings->screen;
 
-    display_board(screen, settings);
+    display_board(settings, screen);
     display_cells(settings);
     if (settings->last_played[0] >= 0 && settings->last_played[1] >= 0) {
         check_connected(settings);
@@ -24,5 +24,6 @@ void display_ncurses(settings_t *settings)
     }
     display_stand(settings, screen);
     display_preview(settings, screen);
+    wrefresh(screen);
     return;
 }
