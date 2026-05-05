@@ -1,15 +1,14 @@
 /*
 ** EPITECH PROJECT, 2025
-** my
+** libmy
 ** File description:
-** contains the prototypes of the 30
-** func from the library my
+** contains the prototypes of the 30ish
+** func from the library my, which I could replace
+** but too used to them (and kind of lazy)
 */
 
 #ifndef MY_STR_PROTOTYPES_H_
     #define MY_STR_PROTOTYPES_H_
-    #include <unistd.h>
-    #include <stdarg.h>
 
 void my_putchar(char c);
 int my_isneg(int nb);

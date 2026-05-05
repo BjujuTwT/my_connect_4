@@ -5,6 +5,8 @@
 ** displays all necessary informations
 */
 
+#include <unistd.h>
+
 #include "my.h"
 #include "macro_colors.h"
 #include "config.h"

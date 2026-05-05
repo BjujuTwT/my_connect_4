@@ -5,6 +5,8 @@
 ** displays in color a text
 */
 
+#include <unistd.h>
+
 #include "config.h"
 #include "my.h"
 #include "macro_colors.h"

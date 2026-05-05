@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2025
-** macro_colors
+** connect4
 ** File description:
 ** contains all macro needed to display
 ** a text in a specific color

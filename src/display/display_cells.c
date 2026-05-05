@@ -11,41 +11,6 @@
 #include "config.h"
 #include "my.h"
 
-
-static int get_highest_played(settings_t *settings, int col)
-{
-    int height = settings->height;
-    cell_t **board = settings->board;
-
-    for (int row = height - 1; row >= 0; row--) {
-        if (board[row][col - 1].taken == 0)
-            return row + 1;
-    }
-    return -1;
-}
-
-static void display_preview(settings_t *settings, WINDOW *screen)
-{
-    int arrow_col = settings->col_arrow;
-    int highest_token = get_highest_played(settings, arrow_col);
-    int pos_x = 0;
-    int pos_y = 0;
-    ll_player_info_t *player = NULL;
-
-    if (highest_token == -1)
-        return;
-    pos_x = get_x_from_column(settings, arrow_col);
-    pos_y = get_y_from_row(settings, highest_token);
-    player = get_player_from_turn(settings->player_info, settings->player_turn);
-    if (has_colors() == true)
-        wattron(screen, COLOR_PAIR(PREVIEW_COLOR));
-    for (int i = 0; (player->pattern)[i] != NULL; i++)
-        mvwprintw(screen, pos_y + i, pos_x, "%ls", (player->pattern)[i]);
-    if (has_colors() == true)
-        wattroff(screen, COLOR_PAIR(PREVIEW_COLOR));
-    return;
-}
-
 static void display_pattern_coordinates(settings_t *settings,
     int x, int y, ll_player_info_t *player_info)
 {
@@ -94,6 +59,5 @@ void display_cells(settings_t *settings)
 
     for (int row = 0; row < height; row++)
         display_cell_row(settings, row, width);
-    display_preview(settings, settings->screen);
     return;
 }

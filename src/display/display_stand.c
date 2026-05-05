@@ -43,7 +43,7 @@ void display_arrow(settings_t *settings, int cell_w, int line_arrow)
     return;
 }
 
-void display_stand(WINDOW *screen, settings_t *settings)
+void display_stand(settings_t *settings, WINDOW *screen)
 {
     int width = settings->width;
     int height = settings->height;

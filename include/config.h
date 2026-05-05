@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2026
-** config
+** connect4
 ** File description:
 ** header for structures, functions, and macros used by the prog
 */
@@ -87,6 +87,7 @@ int is_board_filled(settings_t *settings);
 int get_x_from_column(settings_t *settings, int col);
 int get_y_from_row(settings_t *settings, int row);
 void check_connected(settings_t *set);
+int get_highest_played(settings_t *settings, int col);
 // Not coding style (Epitech's)
 void get_window_size(WINDOW *screen, int *x, int *y);
 
@@ -100,7 +101,8 @@ int display_help(char language);
 void display_ncurses(settings_t *settings);
 void display_board(WINDOW *screen, settings_t *settings);
 void display_cells(settings_t *settings);
-void display_stand(WINDOW *screen, settings_t *settings);
+void display_stand(settings_t *settings, WINDOW *screen);
+void display_preview(settings_t *settings, WINDOW *screen);
 // finish
 void display_bar_horizontal(settings_t *settings);
 void display_bar_vertical(settings_t *settings);
