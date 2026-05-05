@@ -47,13 +47,14 @@ void display_stand(WINDOW *screen, settings_t *settings)
 {
     int width = settings->width;
     int height = settings->height;
+    int offset = settings->proportions[2];
     int cell_w = settings->proportions[0];
     int cell_h = settings->proportions[1];
-    int offset = settings->proportions[2];
+    int board_w = (cell_w + 1) * width + offset + 1;
     int line_stand = cell_h * height + height;
     int column_filled = 0;
 
-    waddstr(screen, "╮");
+    mvwaddstr(screen, line_stand, board_w, "╮");
     mvwaddstr(screen, line_stand, offset - 1, "╭");
     mvwaddstr(screen, line_stand + 1, offset - 1, "╰│");
     for (int cell_nb = 0; cell_nb < width; cell_nb++) {
@@ -61,6 +62,7 @@ void display_stand(WINDOW *screen, settings_t *settings)
         stand_number(screen, cell_w, cell_nb + 1, column_filled);
     }
     waddstr(screen, "╯");
-    display_arrow(settings, cell_w, line_stand + 2);
+    if (settings->is_ended == -1)
+        display_arrow(settings, cell_w, line_stand + 2);
     return;
 }
