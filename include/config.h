@@ -86,6 +86,8 @@ wchar_t **circle_pattern(wchar_t **pattern, int width, int height);
 wchar_t **triangle_pattern(wchar_t **pattern, int width, int height);
 wchar_t **square_pattern(wchar_t **pattern, int width, int height);
 wchar_t **arrow_pattern(wchar_t **pattern, int width, int height);
+wchar_t **four_pattern(wchar_t **pattern, int width, int height);
+wchar_t **cute_cube_pattern(wchar_t **pattern, int width, int height);
 // function for square token templates
 wchar_t **make_a_square_with_corners
 (wchar_t **pattern, wchar_t *corners, int width, int height);
