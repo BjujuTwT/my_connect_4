@@ -53,6 +53,7 @@ NAME_MY =       libmy.a
 SRC_PROJ	=	main.c	\
 			event_handling/wait_for_next_move.c	\
 			error_handling/error_handler.c	\
+			error_handling/verify_window_size.c	\
 			board/pattern_templates_one.c	\
 			board/game_loop.c	\
 			board/make_a_square_with_corners.c	\
@@ -94,7 +95,7 @@ LDFLAGS =      	 -l csfml-graphics -l csfml-system -Llib/ -lmy -lncursesw
 
 CPPFLAGS =	-Iinclude
 
-CFLAGS  =       -Wall -Wextra -Wconversion
+CFLAGS  =       -Wall -Wextra -Wconversion -g3
 
 
 all:	$(NAME_MY) $(NAME_PROJ)

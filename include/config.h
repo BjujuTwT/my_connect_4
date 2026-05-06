@@ -28,6 +28,13 @@
     #define EN_PATH "ressources/english_menu"
     #define FR_PATH "ressources/french_menu"
 
+    // Resolution
+    #define MINIMUM_RESOLUTION '1'
+    #define MAXIMUM_RESOLUTION '4'
+    #define DEFAULT_RESOLUTION '3'
+
+    #define OFFSET_NEXT_MOVE_X 5
+    #define OFFSET_NEXT_MOVE_Y 1
 
 
 typedef struct cell {
@@ -66,6 +73,7 @@ typedef struct game {
 
 // -- Error handling
 int error_handler(int argc, char **argv);
+int verify_window_size(settings_t *settings);
 
 
 // -- Creation functions
