@@ -74,14 +74,19 @@ settings_t init(char mode);
 void ncurses_init(settings_t *settings);
 void csfml_init(settings_t *settings);
 void setup_players_struct(settings_t *settings);
+void setup_window_size(settings_t *settings);
 
 
 // -- Board related functions
+// game loop
 void game_loop(settings_t *settings);
-void setup_window_size(settings_t *settings);
+// token templates
 wchar_t **cross_pattern(wchar_t **pattern, int width, int height);
 wchar_t **circle_pattern(wchar_t **pattern, int width, int height);
 wchar_t **triangle_pattern(wchar_t **pattern, int width, int height);
+wchar_t **square_pattern(wchar_t **pattern, int width, int height);
+wchar_t **arrow_pattern(wchar_t **pattern, int width, int height);
+// function for square token templates
 wchar_t **make_a_square_with_corners
 (wchar_t **pattern, wchar_t *corners, int width, int height);
 

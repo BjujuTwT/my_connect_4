@@ -60,7 +60,7 @@ static int get_size_from_user(settings_t *settings)
 
     get_window_size(settings->screen, &x_max, &y_max);
     display_request(settings->screen, x_max, y_max);
-    while (size < '0' || size > '3') {
+    while (size < '1' || size > '4') {
         size = my_lowercase(wgetch(settings->screen));
         if (size == EXIT_KEY1 || size == EXIT_KEY2)
             return -1;

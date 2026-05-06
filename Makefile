@@ -53,7 +53,7 @@ NAME_MY =       libmy.a
 SRC_PROJ	=	main.c	\
 			event_handling/wait_for_next_move.c	\
 			error_handling/error_handler.c	\
-			board/pattern_templates.c	\
+			board/pattern_templates_one.c	\
 			board/game_loop.c	\
 			board/make_a_square_with_corners.c	\
 			init/settings_init.c	\

@@ -13,7 +13,7 @@
 
 static wchar_t **even_cross_pattern(wchar_t **pattern, int width, int height)
 {
-    int middle_x = width / 2 + 1 - 1;
+    int middle_x = width / 2;
     int lower_y = height / 2 - 1;
     int higher_y = height / 2;
     int offset_x = 1;
@@ -31,8 +31,8 @@ static wchar_t **even_cross_pattern(wchar_t **pattern, int width, int height)
 
 wchar_t **cross_pattern(wchar_t **pattern, int width, int height)
 {
-    int middle_x = width / 2 + 1 - 1;
-    int middle_y = height / 2 + 1 - 1;
+    int middle_x = width / 2;
+    int middle_y = height / 2;
 
     if (height % 2 == 0)
         return even_cross_pattern(pattern, width, height);
@@ -62,7 +62,7 @@ wchar_t **circle_pattern(wchar_t **pattern, int width, int height)
 
 wchar_t **triangle_pattern(wchar_t **pattern, int width, int height)
 {
-    int middle_x = width / 2 + 1 - 1;
+    int middle_x = width / 2;
     int offset = 1;
 
     for (int i = 0; i + 1 < height; i++) {
@@ -72,5 +72,38 @@ wchar_t **triangle_pattern(wchar_t **pattern, int width, int height)
     }
     for (int j = 1; j + 1 < width; j++)
         pattern[height - 1][j] = L'─';
+    return pattern;
+}
+
+wchar_t **square_pattern(wchar_t **pattern, int width, int height)
+{
+    size_t nb_corners_in_square = 4;
+    wchar_t *corners = malloc(sizeof(wchar_t) * (nb_corners_in_square));
+
+    corners[0] = L'╱';
+    corners[1] = L'╲';
+    corners[2] = L'╲';
+    corners[3] = L'╱';
+    pattern = make_a_square_with_corners(pattern, corners, width, height);
+    free(corners);
+    return pattern;
+}
+
+wchar_t **arrow_pattern(wchar_t **pattern, int width, int height)
+{
+    int middle_x = width / 2;
+    int middle_y = height / 2 + height % 2;
+    int offset = 1;
+
+    for (; offset <= width / 4; offset++) {
+        pattern[offset - 1][middle_x - offset] = L'╱';
+        pattern[offset - 1][middle_x + offset] = L'╲';
+        pattern[middle_y + offset - 1][middle_x - offset] = L'╱';
+        pattern[middle_y + offset - 1][middle_x + offset] = L'╲';
+    }
+    if (height % 2 == 1) {
+        pattern[middle_y - height % 2][middle_x - offset] = L'╱';
+        pattern[middle_y - height % 2][middle_x + offset] = L'╲';
+    }
     return pattern;
 }
