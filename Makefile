@@ -58,6 +58,7 @@ SRC_PROJ	=	main.c	\
 			board/game_loop.c	\
 			board/make_a_square_with_corners.c	\
 			board/pattern_templates_two.c	\
+			board/handle_end_game.c	\
 			init/settings_init.c	\
 			init/ncurses_init.c	\
 			init/csfml_init.c	\
@@ -122,6 +123,9 @@ fclean: clean
 	rm -f *.gcda *.gcno
 	rm -f $(NAME_MY) lib/$(NAME_MY) $(NAME_PROJ) a.out lib/my/a.out
 
-re: fclean all
+re:	fclean all
 
-.PHONY: all clean fclean re cpy
+rer:	fclean
+	make -j 7
+
+.PHONY: all clean fclean re cpy rer $(NAME_MY)

@@ -1,6 +1,5 @@
 [38;5;161mHello![0m
 
-
 This little program simulates a 2 player [38;5;75mconnect 4,[0m either with [38;5;178mncurses,[0m or [38;5;34mCSFML ![0m
 
 If you are a tty user, go with [38;5;178mncurses.[0m It's simpler and doesn't use a [38;5;34mgraphical library.[0m
@@ -13,10 +12,11 @@ Usage :
 [38;5;75m./connect_4[0m [38;5;99m[flag][0m
 
 
-[38;5;99mFlags :[0m
+Flags :
 
-[38;5;99m-n :[0m  starts in [38;5;178mncurses[0m
-[38;5;99m-c :[0m  starts in [38;5;34mCSFML[0m
+[38;5;99m-s :[0m displays the current [38;5;99mscore[0m
+[38;5;178m-n :[0m  starts in [38;5;178mncurses[0m
+[38;5;34m-c :[0m  starts in [38;5;34mCSFML[0m
 [38;5;161m-h /[0m [38;5;26m-f :[0m  displays the help menu in [38;5;161menglish /[0m [38;5;26mfrench[0m
 
 

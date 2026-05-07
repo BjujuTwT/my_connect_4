@@ -27,6 +27,7 @@
     // Ressources
     #define EN_PATH "ressources/english_menu"
     #define FR_PATH "ressources/french_menu"
+    #define SCORE_PATH "ressources/scores.txt"
 
     // Resolution
     #define MINIMUM_RESOLUTION '1'
@@ -43,7 +44,7 @@ typedef struct cell {
 } cell_t;
 
 typedef struct linked_list_player_info {
-    int index;
+    int index;  // 1-4
     wchar_t **pattern;
     int color;
     struct linked_list_player_info *next;
@@ -88,6 +89,7 @@ void setup_window_size(settings_t *settings);
 // -- Board related functions
 // game loop
 void game_loop(settings_t *settings);
+void handle_end_game(settings_t *settings);
 // token templates
 wchar_t **cross_pattern(wchar_t **pattern, int width, int height);
 wchar_t **circle_pattern(wchar_t **pattern, int width, int height);
