@@ -34,8 +34,11 @@
     #define MAXIMUM_RESOLUTION '4'
     #define DEFAULT_RESOLUTION '3'
 
+    // Board
     #define OFFSET_NEXT_MOVE_X 5
     #define OFFSET_NEXT_MOVE_Y 1
+    #define MAX_PLAYERS 4
+    #define DEFAULT_NB_PLAYERS 2
 
 
 typedef struct cell {
@@ -75,6 +78,7 @@ typedef struct game {
 // -- Error handling
 int error_handler(int argc, char **argv);
 int verify_window_size(settings_t *settings);
+int is_valid_score_file(FILE *fd, char *buffer);
 
 
 // -- Creation functions
@@ -119,6 +123,11 @@ void check_connected(settings_t *set);
 int get_highest_played(settings_t *settings, int col);
 // Not coding style (Epitech's)
 void get_window_size(WINDOW *screen, int *x, int *y);
+
+
+// -- Parsing
+int get_nbr_at_index(char *str, int index);
+void handle_scores(settings_t *settings);
 
 
 // -- display functions

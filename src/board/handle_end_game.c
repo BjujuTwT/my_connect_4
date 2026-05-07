@@ -13,7 +13,7 @@ void handle_end_game(settings_t *settings)
 {
     int input = -1;
 
-    write_scores(settings);
+    handle_scores(settings);
     input = my_lowercase(wgetch(settings->screen));
     while (input != EXIT_KEY1 && input != EXIT_KEY2) {
         input = my_lowercase(wgetch(settings->screen));

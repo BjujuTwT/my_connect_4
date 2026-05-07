@@ -37,7 +37,7 @@ int my_str_isupper(char const *str);
 int my_str_isprintable(char const *str);
 char *my_strcat(char *dest, char const *src);
 char *my_strncat(char *dest, char const *src, int nb);
-int my_intlen(long long int n);
+int my_intlen(int n);
 float my_floatncmp(float f1, float f2, unsigned int n);
 int my_find_c_in_str(char c, char *str);
 char *my_strcutcpy(char *dest, char const *src, int n);

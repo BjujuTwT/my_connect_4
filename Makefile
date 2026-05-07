@@ -54,6 +54,7 @@ SRC_PROJ	=	main.c	\
 			event_handling/wait_for_next_move.c	\
 			error_handling/error_handler.c	\
 			error_handling/verify_window_size.c	\
+			error_handling/is_valid_score_file.c	\
 			board/pattern_templates_one.c	\
 			board/game_loop.c	\
 			board/make_a_square_with_corners.c	\
@@ -83,6 +84,8 @@ SRC_PROJ	=	main.c	\
 			info_gathering/get_window_size.c	\
 			info_gathering/is_four_connected.c	\
 			info_gathering/get_highest_played.c	\
+			parsing/get_nbr_at_index.c	\
+			parsing/handle_scores.c	\
 
 SRC_PROJ_PREFIX	=	$(addprefix src/, $(SRC_PROJ))
 
@@ -96,7 +99,7 @@ LDFLAGS =      	 -l csfml-graphics -l csfml-system -Llib/ -lmy -lncursesw
 
 CPPFLAGS =	-Iinclude
 
-CFLAGS  =       -Wall -Wextra -Wconversion -g3
+CFLAGS  =       -Wall -Wextra -Wconversion 
 
 
 all:	$(NAME_MY) $(NAME_PROJ)
@@ -115,7 +118,7 @@ cpy:
 clean:
 	rm -f $(OBJ_MY) $(OBJ_PROJ)
 	rm -f include/*~ include/*# include/*.pch
-	rm -f *~ *# src/info_gathering/*~ src/info_gathering/*# src/init/*~ src/init/*#
+	rm -f *~ *# src/info_gathering/*~ src/info_gathering/*# src/init/*~ src/init/*# src/parsing/*~ src/parsing/*#
 	rm -f src/*~ src/*# src/error_handling/*~ src/error_handling/*# src/event_handling/*~ src/event_handling/*#
 	rm -f src/display/*~ src/display/*# src/board/*~ src/board/*# ressources/*~ ressources/*# src/data_mutating/*~ src/data_mutating/*#
 

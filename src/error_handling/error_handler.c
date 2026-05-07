@@ -16,6 +16,7 @@ static int verif_argument(int flag)
     const int csfml_flag = 'c';
     const int help_flag = 'h';
     const int fr_help_flag = 'f';
+    const int score_flag = 's';
 
     switch (flag) {
         case (ncurses_flag):
@@ -25,6 +26,8 @@ static int verif_argument(int flag)
         case (help_flag):
             return 0;
         case (fr_help_flag):
+            return 0;
+        case (score_flag):
             return 0;
     }
     return -1;

@@ -6,12 +6,14 @@
 ** (+1 if negative)
 */
 
-int my_intlen(long long int n)
+int my_intlen(int n)
 {
     int length = 0;
     int negative = 0;
 
-    if (n <= 0) {
+    if (n == 0)
+        return 1;
+    if (n < 0) {
         n *= -1;
         negative = 1;
     }
