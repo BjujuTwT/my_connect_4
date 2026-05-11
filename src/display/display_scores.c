@@ -58,7 +58,7 @@ int display_scores(void)
         display_color("Make sure to play at least one game\n", CYAN, 2);
         return 84;
     }
-    if (verify_scores() < 0) {
+    if (verify_scores(1) < 0) {
         fclose(fd);
         return 84;
     }

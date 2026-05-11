@@ -7,9 +7,10 @@
 
 #include <stdio.h>
 
+#include "macro_colors.h"
 #include "config.h"
 
-int verify_scores(void)
+int verify_scores(int display_errors)
 {
     FILE *fd = fopen(SCORE_PATH, "rb");
     scores_t scores;
@@ -22,9 +23,12 @@ int verify_scores(void)
     fclose(fd);
     if (return_val != 1)
         return -1;
-    if (scores.p1 < -1 || scores.p2 < -1)
+    if (scores.p1 < -1 || scores.p2 < -1 || scores.p3 < -1 || scores.p4 < -1) {
+        if (display_errors != 1)
+            return -1;
+        display_color("Invalid scores file.\n", CRIMSON, 2);
+        display_color("Please try playing once to fix it.\n", CRIMSON, 2);
         return -1;
-    if (scores.p3 < -1 || scores.p4 < -1)
-        return -1;
+    }
     return 0;
 }

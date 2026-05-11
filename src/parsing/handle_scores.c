@@ -77,7 +77,7 @@ void handle_scores(settings_t *settings)
 {
     scores_t *current_scores;
 
-    if (verify_scores() < 0) {
+    if (verify_scores(0) < 0) {
         current_scores = init_scores_from_game(settings);
     } else
         current_scores = init_scores_from_file(settings);

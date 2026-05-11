@@ -27,7 +27,7 @@
     // Ressources
     #define EN_PATH "ressources/english_menu"
     #define FR_PATH "ressources/french_menu"
-    #define SCORE_PATH "ressources/scores.txt"
+    #define SCORE_PATH "ressources/scores"
 
     // Resolution
     #define MINIMUM_RESOLUTION '1'
@@ -85,7 +85,7 @@ typedef struct game {
 // -- Error handling
 int error_handler(int argc, char **argv);
 int verify_window_size(settings_t *settings);
-int verify_scores(void);
+int verify_scores(int display_errors);
 
 
 // -- Creation functions
