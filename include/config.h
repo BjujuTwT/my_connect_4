@@ -41,6 +41,13 @@
     #define DEFAULT_NB_PLAYERS 2
 
 
+typedef struct score {
+    int p1;
+    int p2;
+    int p3;
+    int p4;
+} scores_t;
+
 typedef struct cell {
     int taken;
     int ncurses_color;
@@ -78,7 +85,7 @@ typedef struct game {
 // -- Error handling
 int error_handler(int argc, char **argv);
 int verify_window_size(settings_t *settings);
-int is_valid_score_file(FILE *fd, char *buffer);
+int verify_scores(void);
 
 
 // -- Creation functions
@@ -133,8 +140,10 @@ void handle_scores(settings_t *settings);
 // -- display functions
 // pre game
 void display_color(char *msg, char *color, int std);
+void display_file_unavailable(char *filepath);
 void display_help_examples(int std);
 int display_help(char language);
+int display_scores(void);
 // in game
 void display_ncurses(settings_t *settings);
 void display_board(settings_t *settings, WINDOW *screen);

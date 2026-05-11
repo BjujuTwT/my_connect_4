@@ -5,20 +5,9 @@
 ** displays all necessary informations
 */
 
-#include <unistd.h>
-
 #include "my.h"
 #include "macro_colors.h"
 #include "config.h"
-
-static void display_file_unavailable(char *filepath)
-{
-    display_color("Ressource files are unavailable.\n", CRIMSON, 2);
-    display_color("Missing : ", CRIMSON, 2);
-    display_color(filepath, CYAN, 2);
-    write(2, "\n", 1);
-    return;
-}
 
 static int display_file_content(char *filepath)
 {

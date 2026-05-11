@@ -54,7 +54,7 @@ SRC_PROJ	=	main.c	\
 			event_handling/wait_for_next_move.c	\
 			error_handling/error_handler.c	\
 			error_handling/verify_window_size.c	\
-			error_handling/is_valid_score_file.c	\
+			error_handling/verify_scores.c	\
 			board/pattern_templates_one.c	\
 			board/game_loop.c	\
 			board/make_a_square_with_corners.c	\
@@ -75,6 +75,8 @@ SRC_PROJ	=	main.c	\
 			display/display_bar_vertical.c	\
 			display/display_bar_diagonal.c	\
 			display/display_preview.c	\
+			display/display_file_unavailable.c	\
+			display/display_scores.c	\
 			data_mutating/add_token_in_column.c	\
 			data_mutating/move_arrow.c	\
 			data_mutating/next_turn.c	\
@@ -129,6 +131,6 @@ fclean: clean
 re:	fclean all
 
 rer:	fclean
-	make -j 7
+	make -j 6
 
-.PHONY: all clean fclean re cpy rer $(NAME_MY)
+.PHONY: all clean fclean re cpy rer

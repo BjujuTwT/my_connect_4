@@ -20,6 +20,12 @@
     #define PINK "\x1b[38;5;161m"
     #define BLUE "\x1b[38;5;26m"
 
+    // Players
+    #define P1 "\x1b[31m"
+    #define P2 "\x1b[33m"
+    #define P3 "\x1b[34m"
+    #define P4 "\x1b[32m"
+
     // Basic color
     #define WHITE "\x1b[0m"
 

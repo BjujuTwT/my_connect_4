@@ -41,16 +41,23 @@ static void basic_settings(settings_t *settings)
     return;
 }
 
+static int handle_other_flags(char mode)
+{
+    if (mode == 'h' || mode == 'f')
+        return display_help(mode);
+    if (mode == 's')
+        return display_scores();
+    return 0;
+}
+
 settings_t init(char mode)
 {
     settings_t settings;
 
     setlocale(LC_ALL, "");
-    settings.to_terminate = 0;
-    if (mode == 'h' || mode == 'f') {
-        settings.to_terminate = display_help(mode);
+    settings.to_terminate = handle_other_flags(mode);
+    if (settings.to_terminate != 0)
         return settings;
-    }
     basic_settings(&settings);
     if (mode == 'n')
         ncurses_init(&settings);
