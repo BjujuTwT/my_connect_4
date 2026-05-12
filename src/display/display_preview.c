@@ -37,7 +37,7 @@ static void display_next_player_move(settings_t *settings)
 
     if (settings->is_ended != -1)
         return;
-    box_x += 1 + settings->proportions[3] + OFFSET_NEXT_MOVE_X;
+    box_x += 1 + settings->proportions[2] + OFFSET_NEXT_MOVE_X;
     player = get_player_from_turn(settings->player_info, current_turn);
     display_box_coordinates(settings, box_x, box_y);
     display_pattern_coordinates(settings, box_x + 1, box_y + 1, player);
