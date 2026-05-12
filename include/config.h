@@ -35,10 +35,10 @@
     #define DEFAULT_RESOLUTION '3'
 
     // Board
-    #define OFFSET_NEXT_MOVE_X 5
-    #define OFFSET_NEXT_MOVE_Y 1
+    #define OFFSET_NEXT_MOVE_X 17
+    #define OFFSET_NEXT_MOVE_Y 2
     #define MAX_PLAYERS 4
-    #define DEFAULT_NB_PLAYERS 2
+    #define DEFAULT_NB_PLAYERS 3
 
 
 typedef struct score {
@@ -148,6 +148,9 @@ int display_scores(void);
 void display_ncurses(settings_t *settings);
 void display_board(settings_t *settings, WINDOW *screen);
 void display_cells(settings_t *settings);
+void display_pattern_coordinates
+(settings_t *settings, int x, int y, ll_player_info_t *player_info);
+void display_box_coordinates(settings_t *settings, int x, int y);
 void display_stand(settings_t *settings, WINDOW *screen);
 void display_preview(settings_t *settings, WINDOW *screen);
 // finish

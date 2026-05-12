@@ -77,6 +77,8 @@ SRC_PROJ	=	main.c	\
 			display/display_preview.c	\
 			display/display_file_unavailable.c	\
 			display/display_scores.c	\
+			display/display_pattern_coordinates.c	\
+			display/display_box_coordinates.c	\
 			data_mutating/add_token_in_column.c	\
 			data_mutating/move_arrow.c	\
 			data_mutating/next_turn.c	\
