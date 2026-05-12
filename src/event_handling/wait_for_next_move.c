@@ -18,7 +18,7 @@ static int do_action(int key, settings_t *setting, int width)
 
     if (key == -1)
         return KEY_NOTHING_PRESSED;
-    if (my_lowercase(key) == EXIT_KEY1 || my_lowercase(key) == EXIT_KEY2) {
+    if (my_lowercase(key) == KEY_EXIT1 || my_lowercase(key) == KEY_EXIT2) {
         endwin();
         return KEY_OTHER_EVENT;
     }
@@ -26,6 +26,10 @@ static int do_action(int key, settings_t *setting, int width)
         return add_token_in_col(setting, key, arrow_pos, setting->player_turn);
     if (key == KEY_LEFT || key == KEY_RIGHT)
         return move_arrow(key, board, arrow_pos, width);
+    if (key == KEY_REPLAY) {
+        setting->restart = 1;
+        return KEY_OTHER_EVENT;
+    }
     return KEY_NOTHING_PRESSED;
 }
 

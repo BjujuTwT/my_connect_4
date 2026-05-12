@@ -24,6 +24,7 @@ Flags :
 
 [38;5;219m'1' to '7' / arrow keys + Enter :[0m  row to play
 [38;5;219m'q' :[0m  exits the program
+[38;5;219m'r' :[0m  restarts the game with all current settings
 
 
 

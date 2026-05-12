@@ -52,6 +52,7 @@ NAME_MY =       libmy.a
 
 SRC_PROJ	=	main.c	\
 			event_handling/wait_for_next_move.c	\
+			event_handling/restart_game.c	\
 			error_handling/error_handler.c	\
 			error_handling/verify_window_size.c	\
 			error_handling/verify_scores.c	\

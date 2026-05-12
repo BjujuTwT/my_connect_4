@@ -63,7 +63,7 @@ static int get_size_from_user(settings_t *settings)
     display_request(settings->screen, curr_width, curr_height);
     while (size < MINIMUM_RESOLUTION || size > MAXIMUM_RESOLUTION) {
         size = my_lowercase(wgetch(settings->screen));
-        if (size == EXIT_KEY1 || size == EXIT_KEY2)
+        if (size == KEY_EXIT1 || size == KEY_EXIT2)
             return -1;
         if (size == '\n')
             size = DEFAULT_RESOLUTION;

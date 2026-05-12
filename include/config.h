@@ -16,8 +16,9 @@
     #define PREVIEW_NCURSES 5
 
     // Keybinds
-    #define EXIT_KEY1 'q'
-    #define EXIT_KEY2 'x'
+    #define KEY_EXIT1 'q'
+    #define KEY_EXIT2 'x'
+    #define KEY_REPLAY 'r'
 
     // Events
     #define KEY_NOTHING_PRESSED 0
@@ -50,7 +51,6 @@ typedef struct score {
 
 typedef struct cell {
     int taken;
-    int ncurses_color;
 } cell_t;
 
 typedef struct linked_list_player_info {
@@ -70,6 +70,7 @@ typedef struct game {
     int col_arrow;
     int *last_played;  // [row, column]
     int is_ended;  // Player ID
+    int restart;
 
     // For Ncurses
     int width;
@@ -91,6 +92,7 @@ int verify_scores(int mute);
 // -- Creation functions
 // initialisation
 settings_t init(char mode);
+void setup_basic_settings(settings_t *settings);
 void ncurses_init(settings_t *settings);
 void csfml_init(settings_t *settings);
 void setup_players_struct(settings_t *settings);
@@ -138,7 +140,7 @@ int get_nbr_at_index(char *str, int index);
 void handle_scores(settings_t *settings);
 
 
-// -- display functions
+// -- Display functions
 // pre game
 void display_color(char *msg, char *color, int std);
 void display_file_unavailable(char *filepath);
@@ -160,8 +162,9 @@ void display_bar_vertical(settings_t *settings);
 void display_bar_diagonal(settings_t *settings, int side);
 
 
-// -- event handling
+// -- Event handling
 void wait_for_next_move(settings_t *settings);
+void restart_game(settings_t *settings);
 
 
 

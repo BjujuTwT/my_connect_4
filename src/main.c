@@ -30,6 +30,8 @@ int main(int argc, char **argv)
     if (settings.to_terminate != 0)
         return settings.to_terminate;
     game_loop(&settings);
+    while (settings.restart == 1)
+        restart_game(&settings);
     endwin();
     free_func(&settings);
     return 0;
