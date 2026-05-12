@@ -15,16 +15,16 @@ static void update_scores_from_last_game
 {
     switch (player_won) {
         case (1):
-            (score_list)->p1 += 1;
+            score_list->p1 += 1;
             break;
         case (2):
-            (score_list)->p2 += 1;
+            score_list->p2 += 1;
             break;
         case (3):
-            (score_list)->p3 += 1;
+            score_list->p3 += 1;
             break;
         case (4):
-            (score_list)->p4 += 1;
+            score_list->p4 += 1;
             break;
     }
     return;
@@ -55,6 +55,10 @@ static scores_t *init_scores_from_file(settings_t *settings)
 
     fread(curr_scores, sizeof(scores_t), 1, fd);
     fclose(fd);
+    if (settings->nb_players >= 3 && curr_scores->p3 == -1)
+        curr_scores->p3 = 0;
+    if (settings->nb_players >= 4 && curr_scores->p4 == -1)
+        curr_scores->p4 = 0;
     update_scores_from_last_game(curr_scores, settings->is_ended);
     return curr_scores;
 }
