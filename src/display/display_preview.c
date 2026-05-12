@@ -59,9 +59,9 @@ void display_preview(settings_t *settings, WINDOW *screen)
     pos_y = get_y_from_row(settings, highest_token);
     player = get_player_from_turn(settings->player_info, settings->player_turn);
     if (has_colors() == true)
-        wattron(screen, COLOR_PAIR(PREVIEW_COLOR));
+        wattron(screen, COLOR_PAIR(PREVIEW_NCURSES));
     for (int i = 0; (player->pattern)[i] != NULL; i++)
         mvwprintw(screen, pos_y + i, pos_x, "%ls", (player->pattern)[i]);
     if (has_colors() == true)
-        wattroff(screen, COLOR_PAIR(PREVIEW_COLOR));
+        wattroff(screen, COLOR_PAIR(PREVIEW_NCURSES));
 }

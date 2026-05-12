@@ -60,6 +60,7 @@ SRC_PROJ	=	main.c	\
 			board/make_a_square_with_corners.c	\
 			board/pattern_templates_two.c	\
 			board/handle_end_game.c	\
+			board/handle_ties.c	\
 			init/settings_init.c	\
 			init/ncurses_init.c	\
 			init/csfml_init.c	\

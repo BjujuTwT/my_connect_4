@@ -9,6 +9,18 @@
 #include "config.h"
 #include "my.h"
 
+static void display_tie(WINDOW *screen, int msg_x, int msg_y)
+{
+    int color = PREVIEW_NCURSES;
+
+    if (has_colors() == true)
+        wattron(screen, COLOR_PAIR(color));
+    mvwaddstr(screen, msg_y, msg_x, "It is a tie!");
+    if (has_colors() == true)
+        wattroff(screen, COLOR_PAIR(color));
+    return;
+}
+
 static void display_text(settings_t *settings)
 {
     WINDOW *screen = settings->screen;
@@ -17,6 +29,8 @@ static void display_text(settings_t *settings)
     ll_player_info_t *player = settings->player_info;
 
     msg_y += settings->height + 2;
+    if (settings->is_ended == 0)
+        return display_tie(screen, msg_x, msg_y);
     player = get_player_from_turn(player, settings->is_ended);
     if (has_colors() == true)
         wattron(screen, COLOR_PAIR(player->color));

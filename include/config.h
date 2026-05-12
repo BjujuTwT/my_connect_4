@@ -13,7 +13,7 @@
 
 
     // Colors
-    #define PREVIEW_COLOR 5
+    #define PREVIEW_NCURSES 5
 
     // Keybinds
     #define EXIT_KEY1 'q'
@@ -85,7 +85,7 @@ typedef struct game {
 // -- Error handling
 int error_handler(int argc, char **argv);
 int verify_window_size(settings_t *settings);
-int verify_scores(int display_errors);
+int verify_scores(int mute);
 
 
 // -- Creation functions
@@ -100,6 +100,7 @@ void setup_window_size(settings_t *settings);
 // -- Board related functions
 // game loop
 void game_loop(settings_t *settings);
+void handle_ties(settings_t *settings);
 void handle_end_game(settings_t *settings);
 // token templates
 wchar_t **cross_pattern(wchar_t **pattern, int width, int height);

@@ -13,6 +13,7 @@ void game_loop(settings_t *settings)
         werase(settings->screen);
         if (verify_window_size(settings) != 0)
             break;
+        handle_ties(settings);
         display_ncurses(settings);
         if (settings->is_ended != -1) {
             handle_end_game(settings);
