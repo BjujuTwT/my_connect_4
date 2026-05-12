@@ -38,7 +38,7 @@
     #define OFFSET_NEXT_MOVE_X 17
     #define OFFSET_NEXT_MOVE_Y 2
     #define MAX_PLAYERS 4
-    #define DEFAULT_NB_PLAYERS 3
+    #define DEFAULT_NB_PLAYERS 2
 
 
 typedef struct score {
