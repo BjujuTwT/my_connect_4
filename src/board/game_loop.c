@@ -9,7 +9,7 @@
 
 void game_loop(settings_t *settings)
 {
-    while (isendwin() == FALSE) {
+    while (isendwin() == FALSE && settings->restart != 1) {
         werase(settings->screen);
         if (verify_window_size(settings) != 0)
             break;

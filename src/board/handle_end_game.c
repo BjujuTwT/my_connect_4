@@ -46,12 +46,11 @@ void handle_end_game(settings_t *settings)
 {
     int input = -1;
 
+    settings->restart = 0;
     handle_scores(settings);
     display_text(settings);
     input = my_lowercase(wgetch(settings->screen));
     while (input != KEY_EXIT1 && input != KEY_EXIT2) {
-        //if (input != -1)
-        //printf("%i: %c\n", input, input);
         if (input == KEY_REPLAY) {
             settings->restart = 1;
             return;

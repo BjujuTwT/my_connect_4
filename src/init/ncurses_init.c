@@ -24,9 +24,20 @@ static void color_init(void)
     return;
 }
 
+static int setup_with_user_inputs(settings_t *settings)
+{
+    setup_window_size(settings);
+    if (settings->to_terminate != 0) {
+        endwin();
+        return -1;
+    }
+    return 0;
+}
+
 void ncurses_init(settings_t *settings)
 {
     WINDOW *screen = NULL;
+    int error = 0;
 
     display_help_examples(1);
     screen = initscr();
@@ -37,10 +48,9 @@ void ncurses_init(settings_t *settings)
     if (has_colors() == true)
         color_init();
     settings->screen = screen;
-    setup_window_size(settings);
-    if (settings->to_terminate != 0) {
-        endwin();
+    error = setup_with_user_inputs(settings);
+    if (error != 0)
         return;
-    }
-    return setup_players_struct(settings);
+    setup_players_struct(settings);
+    return;
 }
