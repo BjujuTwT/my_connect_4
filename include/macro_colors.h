@@ -29,5 +29,14 @@
     // Basic color
     #define WHITE "\x1b[0m"
 
+    // Ncurses color pairs
+    #define PAIR_RED 1
+    #define PAIR_YELLOW 2
+    #define PAIR_BLUE 3
+    #define PAIR_GREEN 4
+    #define PAIR_PURPLE 5
+    #define PAIR_CYAN 6
+    #define PAIR_PREVIEW 8
+
 
 #endif /* MACRO_COLORS_H_ */

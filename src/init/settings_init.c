@@ -64,7 +64,5 @@ settings_t init(char mode)
         ncurses_init(&settings);
     if (mode == 'c')
         csfml_init(&settings);
-    if (settings.to_terminate == 0)
-        setup_players_struct(&settings);
     return settings;
 }

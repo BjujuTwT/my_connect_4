@@ -62,11 +62,14 @@ SRC_PROJ	=	main.c	\
 			board/pattern_templates_two.c	\
 			board/handle_end_game.c	\
 			board/handle_ties.c	\
+			board/malloc_pattern.c	\
+			board/get_pattern_from_index.c	\
 			init/settings_init.c	\
 			init/ncurses_init.c	\
 			init/csfml_init.c	\
 			init/players_init.c	\
 			init/window_size.c	\
+			init/players_tokens.c	\
 			display/display_ncurses.c	\
 			display/display_board.c	\
 			display/display_help.c	\
@@ -105,7 +108,7 @@ LDFLAGS =      	 -l csfml-graphics -l csfml-system -Llib/ -lmy -lncursesw
 
 CPPFLAGS =	-Iinclude
 
-CFLAGS  =       -Wall -Wextra -Wconversion 
+CFLAGS  =       -Wall -Wextra -Wconversion -g3
 
 
 all:	$(NAME_MY) $(NAME_PROJ)

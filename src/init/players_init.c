@@ -11,21 +11,6 @@
 
 #include "config.h"
 
-static wchar_t **malloc_pattern(int width, int height)
-{
-    wchar_t **pattern = NULL;
-
-    pattern = malloc(sizeof(wchar_t *) * (size_t)(height + 1));
-    for (int i = 0; i < height; i++) {
-        pattern[i] = malloc(sizeof(wchar_t) * (size_t)(width + 1));
-        for (int j = 0; j < width; j++)
-            pattern[i][j] = L' ';
-        pattern[i][width] = L'\0';
-    }
-    pattern[height] = NULL;
-    return pattern;
-}
-
 static wchar_t **new_pattern(settings_t *settings, int pattern_index)
 {
     int width = (settings->proportions)[0];
@@ -51,6 +36,23 @@ static void add_new_player(ll_player_info_t **head, int index_player,
     new_player->pattern = pattern;
     new_player->next = *head;
     *head = new_player;
+    return;
+}
+
+void addd_new_player(settings_t *settings, int pattern_index, int color)
+{
+    ll_player_info_t *new_player = malloc(sizeof(ll_player_info_t));
+    int id = 1;
+    int width = settings->width;
+    int height = settings->height;
+
+    if (settings->player_info != NULL)
+        id = settings->player_info->index + 1;
+    new_player->index = id;
+    new_player->color = color;
+    new_player->pattern = get_pattern_from_index(pattern_index, width, height);
+    new_player->next = settings->player_info;
+    settings->player_info = new_player;
     return;
 }
 
