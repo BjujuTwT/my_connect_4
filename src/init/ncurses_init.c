@@ -9,11 +9,13 @@
 #include <stdio.h>
 
 #include "config.h"
+#include "macro_colors.h"
 
 static void color_init(void)
 {
     start_color();
     use_default_colors();
+    init_pair(PAIR_WHITE, COLOR_WHITE, -1);
     init_color(COLOR_RED, 1000, 106, 59);
     init_pair(PAIR_RED, COLOR_RED, -1);
     init_color(COLOR_YELLOW, 1000, 909, 231);

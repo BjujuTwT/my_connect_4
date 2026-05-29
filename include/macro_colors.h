@@ -37,6 +37,7 @@
     #define PAIR_PURPLE 5
     #define PAIR_CYAN 6
     #define PAIR_PREVIEW 8
+    #define PAIR_WHITE 0
 
 
 #endif /* MACRO_COLORS_H_ */

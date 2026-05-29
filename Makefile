@@ -108,7 +108,7 @@ LDFLAGS =      	 -l csfml-graphics -l csfml-system -Llib/ -lmy -lncursesw
 
 CPPFLAGS =	-Iinclude
 
-CFLAGS  =       -Wall -Wextra -Wconversion -g3
+CFLAGS  =       -Wall -Wextra -Wconversion
 
 
 all:	$(NAME_MY) $(NAME_PROJ)
@@ -138,6 +138,6 @@ fclean: clean
 re:	fclean all
 
 rer:	fclean
-	make -j 6
+	make -j
 
 .PHONY: all clean fclean re cpy rer

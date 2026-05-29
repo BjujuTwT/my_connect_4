@@ -8,10 +8,11 @@
 
 #include "config.h"
 #include "my.h"
+#include "macro_colors.h"
 
 static void display_tie(WINDOW *screen, int msg_x, int msg_y)
 {
-    int color = PREVIEW_NCURSES;
+    int color = PAIR_PREVIEW;
 
     if (has_colors() == true)
         wattron(screen, COLOR_PAIR(color));

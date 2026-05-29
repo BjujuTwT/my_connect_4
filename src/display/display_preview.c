@@ -11,6 +11,7 @@
 
 #include "config.h"
 #include "my.h"
+#include "macro_colors.h"
 
 static void display_next_player_text
 (settings_t *settings, int box_x, int box_y, int color)
@@ -59,9 +60,9 @@ void display_preview(settings_t *settings, WINDOW *screen)
     pos_y = get_y_from_row(settings, highest_token);
     player = get_player_from_turn(settings->player_info, settings->player_turn);
     if (has_colors() == true)
-        wattron(screen, COLOR_PAIR(PREVIEW_NCURSES));
+        wattron(screen, COLOR_PAIR(PAIR_PREVIEW));
     for (int i = 0; (player->pattern)[i] != NULL; i++)
         mvwprintw(screen, pos_y + i, pos_x, "%ls", (player->pattern)[i]);
     if (has_colors() == true)
-        wattroff(screen, COLOR_PAIR(PREVIEW_NCURSES));
+        wattroff(screen, COLOR_PAIR(PAIR_PREVIEW));
 }

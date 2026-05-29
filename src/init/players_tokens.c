@@ -9,6 +9,7 @@
 
 #include "config.h"
 #include "my.h"
+#include "macro_colors.h"
 
 static ll_player_info_t *create_pattern_list(int width, int height)
 {
@@ -20,6 +21,7 @@ static ll_player_info_t *create_pattern_list(int width, int height)
         ptr = malloc(sizeof(ll_player_info_t));
         next_pattern = get_pattern_from_index(i, width, height);
         ptr->pattern = next_pattern;
+        ptr->color = PAIR_WHITE;
         ptr->next = pattern_list;
         pattern_list = ptr;
     }
@@ -44,12 +46,6 @@ static void display_choice(settings_t *settings, int x, int y, int index)
     ll_player_info_t *pattern_list = settings->pattern_list;
     ll_player_info_t *ptr = pattern_list;
 
-    //endwin();
-    //while (ptr != NULL) {
-    //    printf("%i: %i\n", ptr->index, ptr->color);
-    //    ptr = ptr->next;
-    //}
-    //exit(0);
     if (index == 0)
         index = 7;
     if (index == 8)
