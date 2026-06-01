@@ -21,34 +21,34 @@ static void color_init(void)
     init_color(COLOR_YELLOW, 1000, 909, 231);
     init_pair(PAIR_YELLOW, COLOR_YELLOW, -1);
     init_pair(PAIR_BLUE, COLOR_BLUE, -1);
+    init_pair(PAIR_GREEN, COLOR_GREEN, -1);
+    init_pair(PAIR_PURPLE, COLOR_MAGENTA, -1);
+    init_pair(PAIR_CYAN, COLOR_CYAN, -1);
     init_color(COLOR_BLACK, 271, 271, 271);
     init_pair(PAIR_PREVIEW, COLOR_BLACK, -1);
     return;
 }
 
-static int setup_with_user_inputs(settings_t *settings)
+static void setup_with_user_inputs(settings_t *settings)
 {
     int is_default = setup_window_size(settings);
 
     if (settings->to_terminate != 0) {
         endwin();
-        return -1;
+        return;
     }
     if (is_default == 1)
         setup_players_struct(settings);
     else
         setup_players_tokens(settings);
-    if (settings->to_terminate != 0) {
+    if (settings->to_terminate != 0)
         endwin();
-        return -1;
-    }
-    return 0;
+    return;
 }
 
 void ncurses_init(settings_t *settings)
 {
     WINDOW *screen = NULL;
-    int error = 0;
 
     display_help_examples(1);
     screen = initscr();
@@ -59,9 +59,6 @@ void ncurses_init(settings_t *settings)
     if (has_colors() == true)
         color_init();
     settings->screen = screen;
-    error = setup_with_user_inputs(settings);
-    if (error != 0)
-        return;
-    setup_players_struct(settings);
+    setup_with_user_inputs(settings);
     return;
 }

@@ -36,6 +36,10 @@
     // Board
     #define OFFSET_NEXT_MOVE_X 17
     #define OFFSET_NEXT_MOVE_Y 2
+    #define SPACES_CHOICE_X 5
+    #define SPACES_CHOICE_Y 2
+    #define MAX_TOKENS 7
+    #define MAX_COLORS 6
     #define MAX_PLAYERS 4
     #define DEFAULT_NB_PLAYERS 2
 
