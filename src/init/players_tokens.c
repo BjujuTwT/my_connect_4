@@ -116,7 +116,7 @@ static void display_screen(settings_t *settings, int i_token, int i_color)
     x = (x / 2) - (prop[0] / 2 + 1);
     y = (y / 2) - (prop[1] / 2 + 1);
     distance_x = prop[0] + SPACES_CHOICE_X + 2;
-    distance_y = prop[1] + SPACES_CHOICE_Y + 2;
+    distance_y = (prop[1]) / 2 + SPACES_CHOICE_Y + 1;
     display_token(settings, x - distance_x, y - distance_y, i_token - 1);
     display_token(settings, x, y - distance_y, i_token);
     display_token(settings, x + distance_x, y - distance_y, i_token + 1);
