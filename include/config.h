@@ -94,7 +94,7 @@ settings_t init(char mode);
 void setup_basic_settings(settings_t *settings);
 void ncurses_init(settings_t *settings);
 void csfml_init(settings_t *settings);
-void setup_window_size(settings_t *settings);
+int setup_window_size(settings_t *settings);
 void setup_players_struct(settings_t *settings);
 void setup_players_tokens(settings_t *settings);
 

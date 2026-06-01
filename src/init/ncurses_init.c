@@ -28,13 +28,16 @@ static void color_init(void)
 
 static int setup_with_user_inputs(settings_t *settings)
 {
-    setup_window_size(settings);
+    int is_default = setup_window_size(settings);
+
     if (settings->to_terminate != 0) {
         endwin();
         return -1;
     }
-    setup_players_struct(settings);
-    setup_players_tokens(settings);
+    if (is_default == 1)
+        setup_players_struct(settings);
+    else
+        setup_players_tokens(settings);
     if (settings->to_terminate != 0) {
         endwin();
         return -1;
