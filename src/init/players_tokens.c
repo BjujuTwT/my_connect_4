@@ -102,7 +102,27 @@ static void display_colour(settings_t *settings, int x, int y, int index)
         wattroff(settings->screen, COLOR_PAIR(index));
 }
 
-static void display_screen(settings_t *settings, int i_token, int i_color)
+static void display_select_arrow(settings_t *settings, int line, int color)
+{
+    int x = 0;
+    int y = 0;
+
+    get_window_size(settings->screen, &x, &y);
+    x /= 2;
+    if (line == 1)
+        y = (y / 2) - SPACES_CHOICE_Y + 1;
+    else
+        y = (y / 2) + SPACES_CHOICE_Y + settings->proportions[1] + 2;
+    if (has_colors() == true)
+        wattron(settings->screen, COLOR_PAIR(color));
+    mvwaddstr(settings->screen, y, x, "🠵");
+    if (has_colors() == true)
+        wattroff(settings->screen, COLOR_PAIR(color));
+    return;
+}
+
+static void display_screen
+(settings_t *settings, int i_token, int i_color, int curr_line)
 {
     int *prop = settings->proportions;
     int x = 0;
@@ -123,7 +143,7 @@ static void display_screen(settings_t *settings, int i_token, int i_color)
     display_colour(settings, x - distance_x, y + distance_y, i_color - 1);
     display_colour(settings, x, y + distance_y, i_color);
     display_colour(settings, x + distance_x, y + distance_y, i_color + 1);
-    wrefresh(settings->screen);
+    display_select_arrow(settings, curr_line, i_color);
 }
 
 void setup_players_tokens(settings_t *settings)
@@ -135,7 +155,7 @@ void setup_players_tokens(settings_t *settings)
     int key = 0;
 
     settings->pattern_list = create_pattern_list(prop[0], prop[1], i_color);
-    display_screen(settings, i_token, i_color);
+    display_screen(settings, i_token, i_color, curr_line);
     while (key != '\n') {
         key = wgetch(settings->screen);
         if (my_lowercase(key) == KEY_EXIT1 || my_lowercase(key) == KEY_EXIT2) {
@@ -145,7 +165,7 @@ void setup_players_tokens(settings_t *settings)
         if (key < KEY_DOWN || key > KEY_RIGHT)
             continue;
         handle_index_keys(&i_token, &i_color, &curr_line, key);
-        display_screen(settings, i_token, i_color);
+        display_screen(settings, i_token, i_color, curr_line);
+        wrefresh(settings->screen);
     }
-    return;
 }
