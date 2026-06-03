@@ -180,7 +180,7 @@ void setup_players_tokens(settings_t *settings)
 {
     int *prop = settings->proportions;
     int i_token = 1;
-    int i_color = 2;
+    int i_color = 1;
     int curr_line = 1;
     int key = 0;
 

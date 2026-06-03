@@ -21,11 +21,12 @@ static void color_init(void)
     init_pair(PAIR_RED, COLOR_RED, -1);
     init_color(COLOR_YELLOW, 1000, 909, 231);
     init_pair(PAIR_YELLOW, COLOR_YELLOW, -1);
+    init_color(COLOR_BLUE, 145, 282, 557);
     init_pair(PAIR_BLUE, COLOR_BLUE, -1);
     init_color(COLOR_GREEN, 80, 600, 0);
     init_pair(PAIR_GREEN, COLOR_GREEN, -1);
     init_pair(PAIR_PURPLE, COLOR_MAGENTA, -1);
-    init_color(COLOR_CYAN, 80, 500, 600);
+    init_color(COLOR_CYAN, 78, 471, 784);
     init_pair(PAIR_CYAN, COLOR_CYAN, -1);
     init_color(COLOR_BLACK, 271, 271, 271);
     init_pair(PAIR_PREVIEW, COLOR_BLACK, -1);
