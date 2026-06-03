@@ -26,7 +26,7 @@ static void stand_number(WINDOW *screen, int cell_w,
 void display_arrow(settings_t *settings, int cell_w, int line_arrow)
 {
     int trn = settings->player_turn;
-    ll_player_info_t *player = get_player_from_turn(settings->player_info, trn);
+    ll_player_info_t *player = get_player_from_id(settings->player_info, trn);
     int color = player->color;
     WINDOW *screen = settings->screen;
     int arrow_column = settings->col_arrow;

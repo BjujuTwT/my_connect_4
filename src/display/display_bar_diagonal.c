@@ -86,15 +86,16 @@ void display_bar_diagonal(settings_t *settings, int side)
     WINDOW *screen = settings->screen;
     int row = settings->last_played[0] - 1;
     int col = settings->last_played[1] - 1;
-    int player = (settings->board)[row][col].taken;
-    int color = (settings->board)[row][col].taken;
+    int id = (settings->board)[row][col].taken;
+    ll_player_info_t *player = get_player_from_id(settings->player_info, id);
+    int color = player->color;
 
     if (has_colors() == true)
         wattron(screen, COLOR_PAIR(color));
     if (side > 0)
-        disp_all_main_diagonal(settings, row, col, player);
+        disp_all_main_diagonal(settings, row, col, id);
     else
-        disp_all_anti_diagonal(settings, row, col, player);
+        disp_all_anti_diagonal(settings, row, col, id);
     if (has_colors() == true)
         wattroff(screen, COLOR_PAIR(color));
     return;

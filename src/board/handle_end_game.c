@@ -33,7 +33,7 @@ static void display_text(settings_t *settings)
     msg_y += settings->height + 2;
     if (settings->is_ended == 0)
         return display_tie(screen, msg_x, msg_y);
-    player = get_player_from_turn(player, settings->is_ended);
+    player = get_player_from_id(player, settings->is_ended);
     if (has_colors() == true)
         wattron(screen, COLOR_PAIR(player->color));
     mvwprintw(screen, msg_y, msg_x, "Player P%i has won! ", player->index);

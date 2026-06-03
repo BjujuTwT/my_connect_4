@@ -20,7 +20,7 @@ static void place_token(settings_t *settings,
     int pos_x = get_x_from_column(settings, column + 1);
     int pos_y = get_y_from_row(settings, row + 1);
 
-    pl_ptr = get_player_from_turn(settings->player_info, played_by);
+    pl_ptr = get_player_from_id(settings->player_info, played_by);
     display_pattern_coordinates(settings, pos_x, pos_y, pl_ptr);
     return;
 }

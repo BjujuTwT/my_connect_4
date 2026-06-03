@@ -39,7 +39,7 @@ static void display_next_player_move(settings_t *settings)
     if (settings->is_ended != -1)
         return;
     box_x += 1 + settings->proportions[2] + OFFSET_NEXT_MOVE_X;
-    player = get_player_from_turn(settings->player_info, current_turn);
+    player = get_player_from_id(settings->player_info, current_turn);
     display_box_coordinates(settings, box_x, box_y);
     display_pattern_coordinates(settings, box_x + 1, box_y + 1, player);
     display_next_player_text(settings, box_x, box_y, player->color);
@@ -58,7 +58,7 @@ void display_preview(settings_t *settings, WINDOW *screen)
         return;
     pos_x = get_x_from_column(settings, arrow_col);
     pos_y = get_y_from_row(settings, highest_token);
-    player = get_player_from_turn(settings->player_info, settings->player_turn);
+    player = get_player_from_id(settings->player_info, settings->player_turn);
     if (has_colors() == true)
         wattron(screen, COLOR_PAIR(PAIR_PREVIEW));
     for (int i = 0; (player->pattern)[i] != NULL; i++)

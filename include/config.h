@@ -130,7 +130,7 @@ void next_turn(int *current_turn, int nb_players);
 
 
 // -- Information gathering functions
-ll_player_info_t *get_player_from_turn(ll_player_info_t *player, int turn);
+ll_player_info_t *get_player_from_id(ll_player_info_t *player, int id);
 int is_column_filled(settings_t *settings, int column);
 int is_board_filled(settings_t *settings);
 int get_x_from_column(settings_t *settings, int col);

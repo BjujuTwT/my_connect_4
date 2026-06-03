@@ -87,7 +87,7 @@ SRC_PROJ	=	main.c	\
 			data_mutating/add_token_in_column.c	\
 			data_mutating/move_arrow.c	\
 			data_mutating/next_turn.c	\
-			info_gathering/get_player_from_turn.c	\
+			info_gathering/get_player_from_id.c	\
 			info_gathering/is_board_filled.c	\
 			info_gathering/get_coordinate_from_pos.c	\
 			info_gathering/get_window_size.c	\

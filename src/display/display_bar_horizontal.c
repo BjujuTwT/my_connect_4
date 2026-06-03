@@ -58,8 +58,10 @@ void display_bar_horizontal(settings_t *settings)
     int col = settings->last_played[1];
     int corner_x = get_x_from_column(settings, col);
     int corner_y = get_y_from_row(settings, row);
-    int color = (settings->board)[row - 1][col - 1].taken;
     int *props = settings->proportions;
+    int id = (settings->board)[row - 1][col - 1].taken;
+    ll_player_info_t *player = get_player_from_id(settings->player_info, id);
+    int color = player->color;
 
     if (has_colors() == true)
         wattron(screen, COLOR_PAIR(color));
