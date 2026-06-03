@@ -22,7 +22,8 @@ Flags :
 
 [38;5;219mInteractions :[0m
 
-[38;5;219m'1' to '7' / arrow keys + Enter :[0m  row to play
+[38;5;219m'Enter' / 'Space' :[0m  validates [38;5;219mcurrent[0m token / [38;5;219mall[0m players
+[38;5;219m'1' to '7' / arrow keys + 'Enter' :[0m  row to play
 [38;5;219m'q' :[0m  exits the program
 [38;5;219m'r' :[0m  restarts the game with all current settings
 

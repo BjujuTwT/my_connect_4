@@ -95,6 +95,7 @@ SRC_PROJ	=	main.c	\
 			info_gathering/get_highest_played.c	\
 			parsing/get_nbr_at_index.c	\
 			parsing/handle_scores.c	\
+			destroyer/destroy_players.c	\
 
 SRC_PROJ_PREFIX	=	$(addprefix src/, $(SRC_PROJ))
 
@@ -130,6 +131,7 @@ clean:
 	rm -f *~ *# src/info_gathering/*~ src/info_gathering/*# src/init/*~ src/init/*# src/parsing/*~ src/parsing/*#
 	rm -f src/*~ src/*# src/error_handling/*~ src/error_handling/*# src/event_handling/*~ src/event_handling/*#
 	rm -f src/display/*~ src/display/*# src/board/*~ src/board/*# ressources/*~ ressources/*# src/data_mutating/*~ src/data_mutating/*#
+	rm -f src/destroyer/*~ src/destroyer/*#
 
 fclean: clean
 	rm -f *.gcda *.gcno

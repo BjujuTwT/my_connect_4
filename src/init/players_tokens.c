@@ -146,6 +146,36 @@ static void display_screen
     display_select_arrow(settings, curr_line, i_color);
 }
 
+static void add_new_player(settings_t *settings, int i_token, int i_color)
+{
+    ll_player_info_t *new_player = malloc(sizeof(ll_player_info_t));
+    int id = 1;
+    int *prop = settings->proportions;
+
+    if (settings->player_info != NULL)
+        id = settings->player_info->index + 1;
+    new_player->index = id;
+    new_player->color = i_color;
+    new_player->pattern = get_pattern_from_index(i_token, prop[0], prop[1]);
+    new_player->next = settings->player_info;
+    settings->player_info = new_player;
+    settings->nb_players += 1;
+    return;
+}
+
+static int is_end_of_selection(settings_t *settings, int key)
+{
+    if (key == ' ') {
+        if (settings->nb_players < 2)
+            return 0;
+        else
+            return 1;
+    }
+    if (settings->nb_players == MAX_PLAYERS)
+        return 1;
+    return 0;
+}
+
 void setup_players_tokens(settings_t *settings)
 {
     int *prop = settings->proportions;
@@ -156,16 +186,23 @@ void setup_players_tokens(settings_t *settings)
 
     settings->pattern_list = create_pattern_list(prop[0], prop[1], i_color);
     display_screen(settings, i_token, i_color, curr_line);
-    while (key != '\n') {
+    while (is_end_of_selection(settings, key) == 0) {
         key = wgetch(settings->screen);
         if (my_lowercase(key) == KEY_EXIT1 || my_lowercase(key) == KEY_EXIT2) {
             settings->to_terminate = 1;
             return;
         }
-        if (key < KEY_DOWN || key > KEY_RIGHT)
+        if ((key < KEY_DOWN || key > KEY_RIGHT) && key != '\n')
             continue;
+        if (key == '\n')
+            add_new_player(settings, i_token, i_color);
         handle_index_keys(&i_token, &i_color, &curr_line, key);
         display_screen(settings, i_token, i_color, curr_line);
         wrefresh(settings->screen);
     }
 }
+/*
+void main_loop(settings_t *settings)
+{
+}
+*/

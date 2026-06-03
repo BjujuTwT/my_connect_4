@@ -173,5 +173,9 @@ void wait_for_next_move(settings_t *settings);
 void restart_game(settings_t *settings);
 
 
+// -- Destroyer
+void destroy_players(ll_player_info_t *list);
+
+
 
 #endif /* CONFIG_C4_H_ */

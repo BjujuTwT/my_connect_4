@@ -7,6 +7,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 
 #include "config.h"
 #include "macro_colors.h"
@@ -39,6 +40,8 @@ static void setup_with_user_inputs(settings_t *settings)
         endwin();
         return;
     }
+    settings->player_info = NULL;
+    settings->nb_players = 0;
     if (is_default == 1)
         setup_players_struct(settings);
     else
