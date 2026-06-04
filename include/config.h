@@ -33,15 +33,19 @@
     #define MAXIMUM_RESOLUTION '4'
     #define DEFAULT_RESOLUTION '3'
 
-    // Board
-    #define OFFSET_NEXT_MOVE_X 17
-    #define OFFSET_NEXT_MOVE_Y 2
+    // Menus
     #define SPACES_CHOICE_X 5
     #define SPACES_CHOICE_Y 3
     #define STR_CHOICE_NO_PLAYER "No player added yet, press 'Enter' to add\0"
     #define STR_CHOICE_ONE_PLAYER "Added player P0\0"
     #define STR_CHOICE_CAN_START "Added player P0, press 'Space' to start!"
-    #define INDEX_PLAYER_ID 14
+    #define INDEX_STR_PLAYER_ID 14
+
+    // Board
+    #define BOARD_WIDTH 7
+    #define BOARD_HEIGHT 6
+    #define OFFSET_NEXT_MOVE_X 17
+    #define OFFSET_NEXT_MOVE_Y 2
     #define MAX_TOKENS 7
     #define MAX_COLORS 6
     #define MAX_PLAYERS 4

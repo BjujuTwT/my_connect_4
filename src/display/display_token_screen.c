@@ -31,8 +31,8 @@ static void display_middle_text
 
     if (settings->player_info != NULL) {
         id = settings->player_info->index;
-        if (text[INDEX_PLAYER_ID] == '0')
-            text[INDEX_PLAYER_ID] = (char)id + '0';
+        if (text[INDEX_STR_PLAYER_ID] == '0')
+            text[INDEX_STR_PLAYER_ID] = (char)id + '0';
     }
     mvwaddstr(settings->screen, y, x, text);
     return;

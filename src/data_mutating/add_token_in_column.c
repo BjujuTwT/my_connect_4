@@ -13,7 +13,7 @@ int add_token_in_col(settings_t *set, int key, int *arrow_pos, int player_turn)
 {
     cell_t **board = set->board;
     int column = key - '0' - 1;
-    int row = 5;
+    int row = set->height - 1;
 
     if (key == '\n')
         column = *arrow_pos - 1;

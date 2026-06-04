@@ -32,8 +32,8 @@ static int handle_other_flags(char mode)
 
 void setup_basic_settings(settings_t *settings)
 {
-    size_t width = 7;
-    size_t height = 6;
+    size_t width = BOARD_WIDTH;
+    size_t height = BOARD_HEIGHT;
     size_t dimensions = 2;
 
     settings->width = (int)width;
