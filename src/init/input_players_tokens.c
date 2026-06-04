@@ -29,17 +29,6 @@ static ll_player_info_t *create_pattern_list
     return pattern_list;
 }
 
-static void update_colors(settings_t *settings, int curr_color)
-{
-    ll_player_info_t *ptr = settings->pattern_list;
-
-    while (ptr != NULL) {
-        ptr->color = curr_color;
-        ptr = ptr->next;
-    }
-    return;
-}
-
 static void handle_index_keys
 (int *i_token, int *i_color, int *curr_line, int key)
 {
@@ -61,89 +50,6 @@ static void handle_index_keys
         *i_color = MAX_COLORS;
     if (*i_color > MAX_COLORS)
         *i_color = 1;
-}
-
-static void display_token(settings_t *settings, int x, int y, int index)
-{
-    ll_player_info_t *pattern_list = settings->pattern_list;
-    ll_player_info_t *ptr = pattern_list;
-
-    if (index == 0)
-        index = MAX_TOKENS;
-    if (index > MAX_TOKENS)
-        index = 1;
-    for (int count = 1; count != index; count++)
-        ptr = ptr->next;
-    display_box_coordinates(settings, x, y);
-    display_pattern_coordinates(settings, x + 1, y + 1, ptr);
-}
-
-static void display_colour(settings_t *settings, int x, int y, int index)
-{
-    ll_player_info_t *pattern_list = settings->pattern_list;
-    ll_player_info_t *ptr = pattern_list;
-    int *prop = settings->proportions;
-
-    if (index == 0)
-        index = MAX_COLORS;
-    if (index > MAX_COLORS)
-        index = 1;
-    for (int count = 1; count != index; count++)
-        ptr = ptr->next;
-    display_box_coordinates(settings, x, y);
-    if (has_colors() == true)
-        wattron(settings->screen, COLOR_PAIR(index));
-    for (int index_y = 0; index_y < prop[1]; index_y++) {
-        mvwaddstr(settings->screen, y + index_y + 1, x + 1, "█");
-        for (int index_x = 1; index_x < prop[0]; index_x++)
-            waddstr(settings->screen, "█");
-    }
-    if (has_colors() == true)
-        wattroff(settings->screen, COLOR_PAIR(index));
-}
-
-static void display_select_arrow(settings_t *settings, int line, int color)
-{
-    int x = 0;
-    int y = 0;
-
-    get_window_size(settings->screen, &x, &y);
-    x /= 2;
-    if (line == 1)
-        y = (y / 2) - SPACES_CHOICE_Y + 1;
-    else
-        y = (y / 2) + SPACES_CHOICE_Y + settings->proportions[1] + 2;
-    if (has_colors() == true)
-        wattron(settings->screen, COLOR_PAIR(color));
-    mvwaddstr(settings->screen, y, x, "🠵");
-    if (has_colors() == true)
-        wattroff(settings->screen, COLOR_PAIR(color));
-    return;
-}
-
-static void display_screen
-(settings_t *settings, int i_token, int i_color, int curr_line)
-{
-    int *prop = settings->proportions;
-    int x = 0;
-    int y = 0;
-    int distance_x = 0;
-    int distance_y = 0;
-
-    werase(settings->screen);
-    update_colors(settings, i_color);
-    get_window_size(settings->screen, &x, &y);
-    x = (x / 2) - (prop[0] / 2 + 1);
-    y = (y / 2) - (prop[1] / 2 + 1);
-    distance_x = prop[0] + SPACES_CHOICE_X + 2;
-    distance_y = (prop[1]) / 2 + SPACES_CHOICE_Y + 1;
-    display_token(settings, x - distance_x, y - distance_y, i_token - 1);
-    display_token(settings, x, y - distance_y, i_token);
-    display_token(settings, x + distance_x, y - distance_y, i_token + 1);
-    display_colour(settings, x - distance_x, y + distance_y, i_color - 1);
-    display_colour(settings, x, y + distance_y, i_color);
-    display_colour(settings, x + distance_x, y + distance_y, i_color + 1);
-    display_select_arrow(settings, curr_line, i_color);
 }
 
 static int is_end_of_selection(settings_t *settings, int key)
@@ -174,8 +80,10 @@ static void player_input_loop(settings_t *settings, int i_token, int i_color)
             continue;
         if (key == '\n')
             init_new_player(settings, i_token, i_color);
-        handle_index_keys(&i_token, &i_color, &curr_line, key);
-        display_screen(settings, i_token, i_color, curr_line);
+        if (settings->nb_players < MAX_PLAYERS) {
+            handle_index_keys(&i_token, &i_color, &curr_line, key);
+            display_token_screen(settings, i_token, i_color, curr_line);
+        }
         wrefresh(settings->screen);
     }
     return;
@@ -188,7 +96,7 @@ void setup_players_tokens(settings_t *settings)
     int color_start = 1;
 
     settings->pattern_list = create_pattern_list(prop[0], prop[1], color_start);
-    display_screen(settings, token_start, color_start, 1);
+    display_token_screen(settings, token_start, color_start, 1);
     wrefresh(settings->screen);
     player_input_loop(settings, token_start, color_start);
     destroy_players(settings->pattern_list);

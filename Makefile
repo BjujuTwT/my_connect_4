@@ -39,6 +39,7 @@ SRC_MY	=	my_compute_square_root.c	\
 		my_strcat.c	\
 		my_strcmp.c	\
 		my_strcpy.c	\
+		my_strdup.c	\
 		my_strlen.c	\
 		my_strstr.c	\
 		my_isneg.c	\
@@ -84,6 +85,7 @@ SRC_PROJ	=	main.c	\
 			display/display_scores.c	\
 			display/display_pattern_coordinates.c	\
 			display/display_box_coordinates.c	\
+			display/display_token_screen.c	\
 			data_mutating/add_token_in_column.c	\
 			data_mutating/move_arrow.c	\
 			data_mutating/next_turn.c	\

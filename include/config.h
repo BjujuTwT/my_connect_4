@@ -37,7 +37,11 @@
     #define OFFSET_NEXT_MOVE_X 17
     #define OFFSET_NEXT_MOVE_Y 2
     #define SPACES_CHOICE_X 5
-    #define SPACES_CHOICE_Y 2
+    #define SPACES_CHOICE_Y 3
+    #define STR_CHOICE_NO_PLAYER "No player added yet, press 'Enter' to add\0"
+    #define STR_CHOICE_ONE_PLAYER "Added player P0\0"
+    #define STR_CHOICE_CAN_START "Added player P0, press 'Space' to start!"
+    #define INDEX_PLAYER_ID 14
     #define MAX_TOKENS 7
     #define MAX_COLORS 6
     #define MAX_PLAYERS 4
@@ -156,6 +160,8 @@ void display_file_unavailable(char *filepath);
 void display_help_examples(int std);
 int display_help(char language);
 int display_scores(void);
+void display_token_screen
+(settings_t *settings, int i_token, int i_color, int curr_line);
 // in game
 void display_ncurses(settings_t *settings);
 void display_board(settings_t *settings, WINDOW *screen);

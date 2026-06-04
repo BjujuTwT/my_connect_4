@@ -48,5 +48,6 @@ int my_max(int n1, int n2);
 int my_min(int n1, int n2);
 void my_put_array(char **array);
 int my_lowercase(int c);
+char *my_strdup(char *str);
 
 #endif /* MY_STR_PROTOTYPES_ */
