@@ -101,6 +101,7 @@ void csfml_init(settings_t *settings);
 int setup_window_size(settings_t *settings);
 void setup_players_struct(settings_t *settings);
 void setup_players_tokens(settings_t *settings);
+void init_new_player(settings_t *settings, int i_token, int i_color);
 
 
 // -- Board related functions
@@ -108,6 +109,8 @@ void setup_players_tokens(settings_t *settings);
 void game_loop(settings_t *settings);
 void handle_ties(settings_t *settings);
 void handle_end_game(settings_t *settings);
+// players
+void init_new_player(settings_t *settings, int i_token, int i_color);
 // token templates
 wchar_t **get_pattern_from_index(int index, int width, int height);
 wchar_t **malloc_pattern(int width, int height);

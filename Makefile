@@ -64,12 +64,12 @@ SRC_PROJ	=	main.c	\
 			board/handle_ties.c	\
 			board/malloc_pattern.c	\
 			board/get_pattern_from_index.c	\
+			board/init_new_player.c	\
 			init/settings_init.c	\
 			init/ncurses_init.c	\
 			init/csfml_init.c	\
-			init/players_init.c	\
-			init/window_size.c	\
-			init/players_tokens.c	\
+			init/input_window_size.c	\
+			init/input_players_tokens.c	\
 			display/display_ncurses.c	\
 			display/display_board.c	\
 			display/display_help.c	\

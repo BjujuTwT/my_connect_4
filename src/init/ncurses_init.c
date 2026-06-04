@@ -43,9 +43,10 @@ static void setup_with_user_inputs(settings_t *settings)
     }
     settings->player_info = NULL;
     settings->nb_players = 0;
-    if (is_default == 1)
-        setup_players_struct(settings);
-    else
+    if (is_default == 1) {
+        init_new_player(settings, 1, PAIR_RED);
+        init_new_player(settings, 2, PAIR_YELLOW);
+    } else
         setup_players_tokens(settings);
     if (settings->to_terminate != 0)
         endwin();
