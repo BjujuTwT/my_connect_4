@@ -7,6 +7,7 @@ This project contains two libraries :<br>
 |CSFML|Ncurses|
 |:-:|:-:|
 |Graphical library (GUI)|"Textual" library (TUI)|
+
 <b>Current state :</b><br>
 <b>Ncurses:</b> (finished)<br>
 ![](https://geps.dev/progress/100)<br>
@@ -33,7 +34,7 @@ Starts the game
 ![](https://i.imgur.com/IvgOmN6.png)
 > The first window will ask you a resolution for your window<br>
 > If it doesn't work, try a smaller resolution<br>
-> This table shows you each window size's associated resolution, meaning the width and height for one cell
+> This table shows you each window size's associated resolution, meaning the width and height for one cell<br>
 |Number|Resolution|
 |:-:|:-:|
 |1|7 x 3|
@@ -82,4 +83,4 @@ ___
 > Be aware that a 3+ player connect4 isn't your normal connect4 game, theres a lot of diplomacy going on with opponents, but it's really fun nonetheless!
 ## Credits
 > [Benjamin](https://github.com/benjaminmaxo) for helping with testing<br>
-> [Alex](https://github.com/Alexnex31) for helping with suggestions, and the last screenshot<br>
+> [Alex](https://github.com/Alexnex31) for helping with suggestions, and the last game section screenshot<br>
