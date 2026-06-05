@@ -13,6 +13,15 @@ This project contains two libraries :<br>
 ![](https://geps.dev/progress/100)<br>
 <b>CSFML :</b> (Not usable yet)<br>
 ![](https://geps.dev/progress/10)<br>
+## Table of contents
+- [How to start?](https://github.com/BjujuTwT/my_connect_4#how-to-start)
+- [How to play?](https://github.com/BjujuTwT/my_connect_4#how-to-play)
+  - [Window size menu](https://github.com/BjujuTwT/my_connect_4#window-size-menu)
+  - [Token menu](https://github.com/BjujuTwT/my_connect_4#token-menu)
+  - [Game](https://github.com/BjujuTwT/my_connect_4#game)
+- [Scores](https://github.com/BjujuTwT/my_connect_4#scores)
+- [Notes](https://github.com/BjujuTwT/my_connect_4#notes)
+- [Credits](https://github.com/BjujuTwT/my_connect_4#credits)
 ## How to start?
 ```
 make re
@@ -35,6 +44,7 @@ Starts the game
 > The first window will ask you a resolution for your window<br>
 > If it doesn't work, try a smaller resolution<br>
 > This table shows you each window size's associated resolution, meaning the width and height for one cell<br>
+
 |Number|Resolution|
 |:-:|:-:|
 |1|7 x 3|
@@ -72,7 +82,7 @@ ___
 ### Scores
 ![](https://i.imgur.com/X9r002Z.png)
 > To see the scores of a player (P1-4), you need to play at least one game with said player.<br>
-> 
+> To watch them, type the command to start the game, with the [`-s` flag](https://github.com/BjujuTwT/my_connect_4#how-to-start)
 ## Notes
 > A lot of main variables have been defined by macros in the header file `include/config.h`.<br> 
 > If you want to change variables for yourself, like the max number of players, the board's width and height, you can simply change them here.<br>
