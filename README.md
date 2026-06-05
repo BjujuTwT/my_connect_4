@@ -1,28 +1,85 @@
-# my_connect_4  
-Basic connect 4 in C in two versions, made during my first year studying C  
+# My connect 4
+my_connect4 is a simple project that aims to recreate the [connect 4 game](https://en.wikipedia.org/wiki/Connect_Four) in C language<br>
+This project was made during my first year of study in software engineering.<br> 
+The goal was pretty simple, recreate one of my favourite games in my own way, with what I knew.<br>
+<br>
+This project contains two libraries :<br>
+|CSFML|Ncurses|
+|:-:|:-:|
+|Graphical library (GUI)|"Textual" library (TUI)|
+<b>Current state :</b><br>
+<b>Ncurses:</b> (finished)<br>
+![](https://geps.dev/progress/100)<br>
+<b>CSFML :</b> (Not usable yet)<br>
+![](https://geps.dev/progress/10)<br>
+## How to start?
+```
+make re
+```
+> \- Compiles and creates the binary file, that can launch the game<br>
+```
+./connect4 [FLAG]
+```
+Starts the game 
+|<b>FLAGS</b>|Descriptions|
+|:-|:-|
+|<b>-h</b>|Help menu in english, containing more detailed informations|
+|<b>-f</b>|Help menu in french|
+|<b>-c</b>|Starts in CSFML|
+|<b>-n</b>|Starts in Ncurses|
+|<b>-s</b>|Displays the current score for each player|
+## How to play?
+### Window size menu
+![](https://i.imgur.com/IvgOmN6.png)
+> The first window will ask you a resolution for your window<br>
+> If it doesn't work, try a smaller resolution<br>
+> This table shows you each window size's associated resolution, meaning the width and height for one cell
+|Number|Resolution|
+|:-:|:-:|
+|1|7 x 3|
+|2|9 x 4|
+|3|11 x 5|
+|4|13 x 6|
+___
+### Token menu
+![](https://i.imgur.com/fE8UpZ5.png)
+> This menu contains two lines, both being sliders<br>
+> To interract with a slider, press `Left / Right arrow keys`<br>
+> To change between sliders, press `Up / Down arrow keys`<br>
 
-## How to use?  
-> Help menu :  
-> ./my_connect_4 -h  
+<br>
 
-> To start in **CSFML** :  
-> ./my_connect_4 -c  
+![](https://i.imgur.com/K6KQTkC.png)
+> To add a player with the current token and color, press `Enter`<br>
+> Once you add at least 2 players, you can start by pressing `Space`<br>
+> You can add up to 4 players<br>
+> Each one will play in the order they've been added in<br>
+___
+### Game 
+![](https://i.imgur.com/s0cbFcL.png)
+> The game is turn based, where each player can place a token on the lowest spot of the selected column<br>
+> The arrow shows you which column is selected, you can move it with `Left / Right arrow keys`<br>
+> To play your token, press the `Number key` of the corresponding column, or `Enter` to play in the selected one<br>
+> You can see which player will come next on the right<br>
 
-> To start in **ncurses** :  
-> ./my_connect_4 -n
+<br>
 
-old: <img width="1644" height="1401" alt="image" src="https://github.com/user-attachments/assets/7dcb3122-ed23-4843-a638-bbc344458388" />
+![](https://i.imgur.com/0wfLmhh.png)
+> The game will end when a player [connects 4](https://en.wikipedia.org/wiki/Connect_Four) of their tokens vertically, horizontally or diagonally, or when the board is filled<br>
+> You can restart pressing `R` at any point, even while playing
+___
+### Scores
+![](https://i.imgur.com/X9r002Z.png)
+> To see the scores of a player (P1-4), you need to play at least one game with said player.<br>
+> 
+## Notes
+> A lot of main variables have been defined by macros in the header file `include/config.h`.<br> 
+> If you want to change variables for yourself, like the max number of players, the board's width and height, you can simply change them here.<br>
+> Be aware, they can make the program crash, or make it do weird things..<br>
 
-window menu: 
-<img width="1074" height="558" alt="image" src="https://github.com/user-attachments/assets/c9706078-48df-476d-8873-fa06cd4663a3" />
+> Some personal choices have been made simply to make the gameplay funnier, and have a lot of things still modifiable by the player (you can choose 4x the same color / pattern).
 
-token menu: 
-<img width="1039" height="860" alt="image" src="https://github.com/user-attachments/assets/d7e2bbd8-78bb-4779-aff6-40051c178cd6" />
-<img width="1043" height="821" alt="image" src="https://github.com/user-attachments/assets/255f736b-9526-43b0-a687-f9bb64fad4fa" />
-
-game:
-<img width="2326" height="1552" alt="image" src="https://github.com/user-attachments/assets/6a1a1ecd-973c-444e-a4c5-d6efdaa544df" />
-<img width="1609" height="1402" alt="image" src="https://github.com/user-attachments/assets/c46f73e2-2bd4-4c5f-88e8-6b0245e4c3be" />
-
-scores:
-<img width="1041" height="640" alt="image" src="https://github.com/user-attachments/assets/665d29e3-2bf2-47fe-9b4e-9e05cfcbabb4" />
+> Be aware that a 3+ player connect4 isn't your normal connect4 game, theres a lot of diplomacy going on with opponents, but it's really fun nonetheless!
+## Credits
+> [Benjamin](https://github.com/benjaminmaxo) for helping with testing<br>
+> [Alex](https://github.com/Alexnex31) for helping with suggestions, and the last screenshot<br>
