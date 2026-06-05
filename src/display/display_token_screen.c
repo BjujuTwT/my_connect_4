@@ -6,6 +6,7 @@
 */
 
 #include <stddef.h>
+#include <stdlib.h>
 
 #include "config.h"
 #include "my.h"
@@ -57,6 +58,7 @@ static void handle_middle_text
     display_middle_text(settings, msg, win_width, win_height);
     if (has_colors() == true)
         wattroff(settings->screen, COLOR_PAIR(color));
+    free(msg);
     return;
 }
 

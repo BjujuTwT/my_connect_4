@@ -25,6 +25,16 @@
 #include "config.h"
 #include "my.h"
 
+static void free_corners
+(char **array1, char **array2, char **array3, char **array4)
+{
+    free(array1);
+    free(array2);
+    free(array3);
+    free(array4);
+    return;
+}
+
 static void disp_line(WINDOW *screen, settings_t *settings,
     int line, char **corners)
 {
@@ -54,6 +64,7 @@ static char **corner_array(char *corner1, char *corner2,
     wstruct[1] = corner2;
     wstruct[2] = corner3;
     wstruct[3] = corner4;
+    wstruct[4] = NULL;
     return wstruct;
 }
 
@@ -75,5 +86,6 @@ void display_board(settings_t *settings, WINDOW *screen)
             disp_line(screen, settings, line_i, corner_basic);
     }
     disp_line(screen, settings, nb_lines - 1, corner_down);
+    free_corners(corner_up, corner_basic, corner_middle, corner_down);
     return;
 }

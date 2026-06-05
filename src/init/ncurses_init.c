@@ -48,8 +48,10 @@ static void setup_with_user_inputs(settings_t *settings)
         init_new_player(settings, 2, PAIR_YELLOW);
     } else
         setup_players_tokens(settings);
-    if (settings->to_terminate != 0)
+    if (settings->to_terminate != 0) {
+        destroy_from_token_input(settings);
         endwin();
+    }
     return;
 }
 

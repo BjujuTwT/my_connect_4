@@ -48,21 +48,26 @@ void setup_basic_settings(settings_t *settings)
     settings->board = malloc(sizeof(cell_t *) * height);
     for (size_t i = 0; i < height; i++)
         (settings->board)[i] = init_cell_row(width);
+    settings->to_terminate = 0;
     return;
 }
 
-settings_t init(char mode)
+settings_t *init(char mode)
 {
-    settings_t settings;
+    settings_t *settings = NULL;
+    int to_terminate = 0;
 
     setlocale(LC_ALL, "");
-    settings.to_terminate = handle_other_flags(mode);
-    if (settings.to_terminate != 0)
+    to_terminate = handle_other_flags(mode);
+    if (to_terminate != 0)
         return settings;
-    setup_basic_settings(&settings);
+    settings = malloc(sizeof(settings_t));
+    setup_basic_settings(settings);
     if (mode == 'n')
-        ncurses_init(&settings);
+        ncurses_init(settings);
     if (mode == 'c')
-        csfml_init(&settings);
+        csfml_init(settings);
+    if (settings->to_terminate != 0)
+        destroy_basic_settings(settings);
     return settings;
 }

@@ -102,7 +102,7 @@ int verify_scores(int mute);
 
 // -- Creation functions
 // initialisation
-settings_t init(char mode);
+settings_t *init(char mode);
 void setup_basic_settings(settings_t *settings);
 void ncurses_init(settings_t *settings);
 void csfml_init(settings_t *settings);
@@ -188,6 +188,9 @@ void restart_game(settings_t *settings);
 
 // -- Destroyer
 void destroy_players(ll_player_info_t *list);
+void free_function(settings_t *settings);
+void destroy_basic_settings(settings_t *settings);
+void destroy_from_token_input(settings_t *settings);
 
 
 

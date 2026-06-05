@@ -8,31 +8,22 @@
 #include <stdlib.h>
 
 #include "config.h"
-#include "my.h"
-
-static void free_func(settings_t *settings)
-{
-    int height = settings->height;
-
-    for (int i = 0; i < height; i++)
-        free((settings->board)[i]);
-    free(settings->board);
-    return;
-}
 
 int main(int argc, char **argv)
 {
-    settings_t settings;
+    settings_t *settings = NULL;
 
     if (error_handler(argc, argv) != 0)
         return 84;
     settings = init(argv[1][1]);
-    if (settings.to_terminate != 0)
-        return settings.to_terminate;
-    game_loop(&settings);
-    while (settings.restart == 1)
-        restart_game(&settings);
+    if (settings->to_terminate != 0) {
+        free(settings);
+        return 84;
+    }
+    game_loop(settings);
+    while (settings->restart == 1)
+        restart_game(settings);
     endwin();
-    free_func(&settings);
+    free_function(settings);
     return 0;
 }

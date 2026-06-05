@@ -98,6 +98,9 @@ SRC_PROJ	=	main.c	\
 			parsing/get_nbr_at_index.c	\
 			parsing/handle_scores.c	\
 			destroyer/destroy_players.c	\
+			destroyer/free_function.c	\
+			destroyer/destroy_basic_settings.c	\
+			destroyer/destroy_from_token_input.c	\
 
 SRC_PROJ_PREFIX	=	$(addprefix src/, $(SRC_PROJ))
 
@@ -111,7 +114,7 @@ LDFLAGS =      	 -l csfml-graphics -l csfml-system -Llib/ -lmy -lncursesw
 
 CPPFLAGS =	-Iinclude
 
-CFLAGS  =       -Wall -Wextra -Wconversion
+CFLAGS  =       -Wall -Wextra -Wconversion -g3
 
 
 all:	$(NAME_MY) $(NAME_PROJ)
