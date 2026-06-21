@@ -54,14 +54,12 @@ void setup_basic_settings(settings_t *settings)
 
 settings_t *init(char mode)
 {
-    settings_t *settings = NULL;
-    int to_terminate = 0;
+    settings_t *settings = malloc(sizeof(settings_t));
 
     setlocale(LC_ALL, "");
-    to_terminate = handle_other_flags(mode);
-    if (to_terminate != 0)
+    settings->to_terminate = handle_other_flags(mode);
+    if (settings->to_terminate != 0)
         return settings;
-    settings = malloc(sizeof(settings_t));
     setup_basic_settings(settings);
     if (mode == 'n')
         ncurses_init(settings);

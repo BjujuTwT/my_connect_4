@@ -5,6 +5,8 @@
 ** displays all necessary informations
 */
 
+#include <stdlib.h>
+
 #include "my.h"
 #include "macro_colors.h"
 #include "config.h"
@@ -26,6 +28,8 @@ static int display_file_content(char *filepath)
         my_putstr(buffer);
         return_value = getline(&buffer, &size, fd);
     }
+    free(buffer);
+    fclose(fd);
     return 0;
 }
 
